@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import ProjectCard from '@/components/ProjectCard'; // keep your existing ProjectCard
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 
 export default function HomePage() {
   useEffect(() => {
@@ -484,6 +485,7 @@ export default function HomePage() {
         </a>
       </div>
       <SpeedInsights />
+      <Analytics />
     </>
   );
 }
