@@ -399,7 +399,7 @@ export default function HomePage() {
                 </div>
                 <div className="proj-extra">
                   <p>Won Emerging Team (Blockchain) at UIU CSE FEST 2025.</p>
-                  <a href="https://spicy-portfolio.vercel.app/wastopia.html" className="proj-link">View Project</a>
+                  <a href="https://project-wastopia.vercel.app/" className="proj-link">View Project</a>
                 </div>
               </div>
 
