@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import ClientEffects from '@/components/ClientEffects';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
+
 
 export const metadata: Metadata = {
   title: 'Ahmad Maruf Hossain — Portfolio',
@@ -20,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ClientEffects />
         <div className="wrap">{children}</div>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
