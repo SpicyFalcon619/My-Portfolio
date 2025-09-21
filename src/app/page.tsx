@@ -16,10 +16,45 @@ export default function HomePage() {
     // NOTE: kept as innerHTML injection to mirror original 1:1 behavior.
     // This is fine for local static content; if you prefer, these can be migrated to React handlers.
     script.innerHTML = `
+      // THEME PERSISTENCE - Load saved theme or default to dark
+      function initializeTheme() {
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Use saved theme, or fall back to system preference, or default to dark
+        const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+        
+        if (isDark) {
+          document.documentElement.classList.remove('light');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      }
+
+      function setTheme(isDark) {
+        if (isDark) {
+          document.documentElement.classList.remove('light');
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('portfolio-theme', 'dark');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('portfolio-theme', 'light');
+        }
+      }
+
+      // Initialize theme on page load
+      initializeTheme();
+
       // THEME TOGGLE
       const themeBtn = document.getElementById('themeToggle');
       if(themeBtn) themeBtn.onclick = () => {
-        document.documentElement.classList.toggle('light');
+        const isCurrentlyLight = document.documentElement.classList.contains('light');
+        setTheme(isCurrentlyLight); // Toggle to opposite
+        
+        // Smooth transition effect
         document.body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
         setTimeout(() => { document.body.style.transition = 'background .45s ease, color .35s ease'; }, 500);
       };
@@ -211,7 +246,17 @@ export default function HomePage() {
           </nav>
 
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-            <button className="theme-btn magnetic" id="themeToggle" title="Toggle theme">🌓</button>
+            <button className="theme-btn magnetic" id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light theme">
+              <svg className="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g className="sun-icon">
+                  <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 6.34L4.93 4.93M19.07 19.07l-1.41-1.41" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </g>
+                <g className="moon-icon">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+                </g>
+              </svg>
+            </button>
             <button className="burger" id="openMobile" aria-label="open menu">☰</button>
           </div>
         </header>

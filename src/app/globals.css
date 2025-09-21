@@ -102,7 +102,6 @@ nav{display:flex;gap:12px;align-items:center}
 nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px;border-radius:10px}
 nav a:hover{color:inherit;background:var(--glass);backdrop-filter:blur(6px)}
 .burger{display:none;padding:8px;border-radius:10px;background:var(--glass-2);cursor:pointer}
-.theme-btn{padding:8px;border-radius:10px;background:var(--glass-2);cursor:pointer}
 
 /* Hero */
 .hero{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:center;margin-top:18px}
@@ -232,14 +231,22 @@ footer{margin-top:34px;color:var(--muted);font-size:13px;text-align:center;paddi
   transform: translateY(-2px) scale(1.02);
 }
 
-.theme-btn{
-  width:36px;
-  height:36px;
-  padding:0;
-  font-size:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* Theme toggle button */
+.theme-btn {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--glass-2);
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 0 0 0px var(--accent1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
 }
 
 a {
@@ -500,18 +507,71 @@ nav a:hover::after {
   opacity: 1;
 }
 
-/* Enhanced theme button */
+/* Theme toggle button */
 .theme-btn {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--glass-2);
+  cursor: pointer;
+  border: none;
   transition: all 0.3s ease;
   position: relative;
   box-shadow: 0 0 0 0px var(--accent1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
 }
 
 .theme-btn:hover {
-  transform: rotate(180deg) scale(1.1);
+  transform: rotate(15deg) scale(1.1);
   background: linear-gradient(45deg, var(--accent1), var(--accent2));
   color: white;
   box-shadow: 0 0 10px var(--accent1), 0 0 20px var(--accent2);
+}
+
+.theme-btn:active {
+  transform: scale(0.95) rotate(-15deg);
+}
+
+/* Theme icon animations */
+.theme-icon {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.theme-icon .sun-icon,
+.theme-icon .moon-icon {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Default state - dark mode (moon visible) */
+.sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Light mode state (sun visible) */
+:root.light .sun-icon,
+[data-theme="light"] .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+:root.light .moon-icon,
+[data-theme="light"] .moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
 }
 
 /* Enhanced hero section */
