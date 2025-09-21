@@ -369,7 +369,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <p style={{ color: 'var(--muted)', marginTop: 8 }}>
-                  Completed higher secondary with a focus on Mathematics, Physics, and Chemistry — a solid foundation for CS studies.
+                  Completed higher secondary with a focus on Mathematics, Physics, and Chemistry - a solid foundation for CS studies.
                 </p>
                 <div style={{ marginTop: 10 }}>
                   <span className="pill">Mathematics</span>

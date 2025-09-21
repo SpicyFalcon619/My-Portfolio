@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 
 
 export const metadata: Metadata = {
-  title: 'Ahmad Maruf Hossain — Portfolio',
+  title: 'Ahmad Maruf Hossain - Portfolio',
   description: 'CSE undergrad, coder, Linux tinkerer, blockchain enthusiast.',
   icons: {
     icon: '/favicon.ico', // place favicon.ico in /public

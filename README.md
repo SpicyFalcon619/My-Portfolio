@@ -2,13 +2,13 @@
 
 Hey there! 👋 I'm Maruf Hossain, and this is my personal portfolio website built with **Next.js**, **TypeScript**, and **Tailwind CSS**.
 
-This project showcases my skills, projects, and design style—all in one sleek, responsive web app.
+This project showcases my skills, projects, and design style-all in one sleek, responsive web app.
 
 ---
 
 ## 🌐 Live Demo
 
-Check out the live site: [https://spicy-portfolio.vercel.app](https://spicy-portfolio.vercel.app)
+Check out the live site: [https://spicyfalcon-portfolio.vercel.app](https://spicyfalcon-portfolio.vercel.app)
 
 ---
 
