@@ -35,8 +35,13 @@ My-Portfolio/
 ├── package.json       # Project dependencies & scripts
 ├── tsconfig.json      # TypeScript configuration
 ├── next.config.ts     # Next.js configuration
+[existing code]
 └── README.md
 ```
+
+## Screenshots
+
+![Preview](public/assets/preview.png)
 
 ---
 
@@ -95,7 +100,7 @@ This project is optimized for **Vercel**. Simply connect your GitHub repo to Ver
 
 ## 📸 Screenshots
 
-*(Optional: add screenshots of your portfolio here to make it visually appealing)*
+
 
 ---
 
