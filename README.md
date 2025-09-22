@@ -41,7 +41,7 @@ My-Portfolio/
 
 ## Screenshots
 
-![Preview](public/assets/preview.png)
+![Preview](/public/assets/preview.png)
 
 ---
 
