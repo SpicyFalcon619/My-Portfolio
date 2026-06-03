@@ -267,8 +267,8 @@ export default function HomePage() {
               description="A comprehensive housing, flatmate matching, and peer-to-peer marketplace platform built exclusively for UIU students and landlords." 
               tags={['HTML', 'CSS', 'JavaScript', 'Marketplace']} 
               extraInfo="Simplifying student housing and item marketplace specifically designed for the UIU community." 
-              link="https://github.com/SpicyFalcon619/UIUNest" 
-              linkText="View on GitHub" 
+              link="https://uiunest-production.up.railway.app/" 
+              linkText="View Live Project" 
             />
 
             <ProjectCard 
@@ -294,8 +294,8 @@ export default function HomePage() {
               description="A browser-based OS simulation acting as an interactive portfolio and desktop environment." 
               tags={['JavaScript', 'HTML', 'CSS', 'OS Simulation']} 
               extraInfo="A creative way to showcase skills through a familiar desktop UI entirely in the browser." 
-              link="https://github.com/SpicyFalcon619/spicyfalcon-os" 
-              linkText="View on GitHub" 
+              link="https://spicyfalcon-os.vercel.app" 
+              linkText="View Live Project" 
             />
 
             <ProjectCard 
