@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Poppins, JetBrains_Mono } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
 import ClientEffects from '@/components/ClientEffects';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
-import { Poppins, JetBrains_Mono } from 'next/font/google';
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-poppins',
   display: 'swap',
 });
@@ -19,50 +20,26 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
-
 export const metadata: Metadata = {
   title: 'Ahmad Maruf Hossain - Portfolio',
   description: 'CSE undergrad, coder, Linux tinkerer, blockchain enthusiast.',
   icons: {
-    icon: '/favicon.ico', // place favicon.ico in /public
+    icon: '/favicon.ico',
     shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png', // optional for iOS
+    apple: '/apple-touch-icon.png',
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${jetbrainsMono.variable}`}>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const savedTheme = localStorage.getItem('portfolio-theme');
-                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
-                  
-                  if (!isDark) {
-                    document.documentElement.classList.add('light');
-                    document.documentElement.setAttribute('data-theme', 'light');
-                  } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                  }
-                } catch (e) {
-                  // Fallback to dark theme if localStorage fails
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" suppressHydrationWarning className={`${poppins.variable} ${jetbrainsMono.variable}`}>
       <body>
-        <ClientEffects />
-        <div className="wrap">{children}</div>
-        <SpeedInsights />
-        <Analytics />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <ClientEffects />
+          <div className="wrap">{children}</div>
+          <SpeedInsights />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );
