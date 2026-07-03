@@ -1,105 +1,75 @@
-# My Portfolio
+# Ahmad Maruf Hossain — Portfolio
 
-Hey there! 👋 I'm Maruf Hossain, and this is my personal portfolio website built with **Next.js**, **TypeScript**, and **Tailwind CSS**.
+Personal portfolio for **SpicyFalcon619** — a CSE undergrad at United International University going deep on machine learning and AI, with systems programming and Linux along the way. Built as a neo-brutalist single-page site: solid panels, hard offset shadows, sharp corners, real GitHub data — no stock templates, no placeholder content.
 
-This project showcases my skills, projects, and design style-all in one sleek, responsive web app.
-
----
-
-## 🌐 Live Demo
-
-Check out the live site: [https://spicyfalcon-portfolio.vercel.app](https://spicyfalcon-portfolio.vercel.app)
-
----
-
-## 🛠 Tech Stack
-
-* **Framework**: Next.js
-* **Language**: TypeScript
-* **Styling**: Tailwind CSS
-* **Deployment**: Vercel
-* **Linting/Formatting**: ESLint, Prettier
-
----
-
-
-## 📂 Project Structure
-
-```
-my-portfolio/
-├── public/
-│   ├── file.svg
-│   ├── globe.svg
-│   ├── next.svg
-│   ├── vercel.svg
-│   ├── window.svg
-│   └── assets/
-│       ├── android-chrome-192x192.png
-│       ├── android-chrome-512x512.png
-│       ├── apple-touch-icon.png
-│       ├── avatar-t.jpg
-│       ├── avatar.jpg
-│       ├── favicon-16x16.png
-│       ├── favicon-32x32.png
-│       ├── my-logo.png
-│       └── preview.png
-├── src/
-│   ├── app/
-│   │   ├── favicon.ico
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   ├── page.module.css
-│   │   └── page.tsx
-│   └── components/
-│       ├── ClientEffects.tsx
-│       └── ProjectCard.tsx
-├── plain-html/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── eslint.config.mjs
-├── next-env.d.ts
-├── next.config.ts
-├── package.json
-├── README.md
-├── tsconfig.json
-```
-
-
-## Screenshots
+**Live:** [spicyfalcon-portfolio.vercel.app](https://spicyfalcon-portfolio.vercel.app)
 
 ![Preview](public/assets/preview.png)
 
 ---
 
-## ⚡ Features
+## Tech Stack
 
-* Fully responsive and mobile-friendly design
-* Smooth animations and interactive UI elements
-* Dark/light mode support
-* Easy to extend with new projects or sections
+* **Framework**: Next.js 15 (App Router), React 19, TypeScript
+* **Styling**: Plain CSS with custom properties for theming — no utility framework
+* **Animation**: Framer Motion, `react-type-animation`
+* **Theming**: `next-themes` (dark/light, class-based)
+* **Analytics**: Vercel Analytics + Speed Insights
+* **Deployment**: Vercel
 
----
+## What Makes This Different
 
-## 🚀 Getting Started
+* **Real GitHub data, not placeholders** — [`src/lib/github.ts`](src/lib/github.ts) fetches live public-repo stats from the GitHub REST API and scrapes the actual contribution calendar HTML from `github.com/users/{user}/contributions`, then renders it as a self-owned CSS grid (no third-party chart embeds).
+* **8 real, linked projects** — every entry in Selected Work links to an actual repo or live deployment, not a tutorial clone.
+* **Pure neo-brutalism** — solid panel backgrounds, 2px borders, hard (no-blur) offset shadows, minimal border-radius, and project rows styled as literal pressable buttons.
+* **No custom cursor, no glassmorphism, no generic bento grids** — deliberately avoided after early iterations read as generic/AI-templated.
+
+## Project Structure
+
+```
+my-portfolio/
+├── public/
+│   └── assets/            # avatar, favicons, preview screenshot
+├── src/
+│   ├── app/
+│   │   ├── globals.css    # design tokens + all styling
+│   │   ├── layout.tsx     # fonts, theme provider, analytics
+│   │   └── page.tsx       # fetches GitHub data, composes sections
+│   ├── components/
+│   │   ├── TopBar.tsx          # sticky nav + mobile menu
+│   │   ├── Hero.tsx             # name, tagline, profile card, stats
+│   │   ├── ProjectIndex.tsx     # Selected Work — index + detail view
+│   │   ├── InfoPanels.tsx       # About, Tech Stack, GitHub activity
+│   │   ├── GitHubHeatmap.tsx    # renders real contribution data
+│   │   ├── Timeline.tsx         # education + achievements
+│   │   ├── ContactCTA.tsx       # contact form + socials
+│   │   ├── Icons.tsx            # custom SVG icon set
+│   │   ├── ThemeToggle.tsx
+│   │   ├── ScrollReveal.tsx
+│   │   ├── MagneticButton.tsx
+│   │   └── ParticleBackground.tsx
+│   └── lib/
+│       └── github.ts      # GitHub REST fetch + contribution scraper
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+## Getting Started
 
 ### Prerequisites
 
 * Node.js >= 18
-* npm or yarn
-
+* npm
 
 ### Installation
 
 ```bash
 npm install
 npm run dev
-# or
-yarn
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see it live locally.
+Open [http://localhost:3000](http://localhost:3000) to see it live locally.
 
 ### Build for Production
 
@@ -108,20 +78,14 @@ npm run build
 npm start
 ```
 
----
+## Deployment
 
-## 📈 Deployment
+Optimized for **Vercel** — connect the GitHub repo and it auto-deploys on every push to `main`.
 
-This project is optimized for **Vercel**. Simply connect your GitHub repo to Vercel and it will auto-deploy on each push.
+## Roadmap
 
----
+See [NEXT_STEPS.md](NEXT_STEPS.md) for the open ideas backlog (OG image, resume link, deeper case studies, perf pass).
 
-## 💡 Contributing
+## License
 
-Feel free to fork this repo and make improvements! Pull requests are welcome.
-
----
-
-## 📝 License
-
-This project is **open source** and available under the MIT License.
+Open source under the MIT License.

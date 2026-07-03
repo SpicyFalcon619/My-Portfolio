@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Ahmad Maruf Hossain - Portfolio',
-  description: 'CSE undergrad, coder, Linux tinkerer, blockchain enthusiast.',
+  description: 'CSE undergrad going deep on machine learning and AI, with Linux and systems programming along the way.',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
