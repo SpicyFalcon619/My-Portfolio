@@ -264,6 +264,10 @@ section { margin-top: 96px; position: relative; }
 @media (max-width: 640px) {
   .brand-mark .name, .brand-mark .role { display: none; }
   .dock-item { padding: 8px 10px; font-size: 11px; }
+  .dock {
+    mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+  }
 }
 
 /* ============================================================
