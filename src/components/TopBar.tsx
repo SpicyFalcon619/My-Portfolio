@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import ThemeToggle from './ThemeToggle';
+import { MenuIcon, CloseIcon } from './Icons';
 
 const SECTIONS = [
   { id: 'hero', label: 'Home' },
@@ -14,6 +15,7 @@ const SECTIONS = [
 export default function TopBar() {
   const [active, setActive] = useState('hero');
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,6 +43,7 @@ export default function TopBar() {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) window.scrollTo({ top: el.offsetTop - 24, behavior: 'smooth' });
+    setMenuOpen(false);
   };
 
   return (
@@ -62,7 +65,31 @@ export default function TopBar() {
         ))}
       </nav>
 
-      <ThemeToggle />
+      <div className="topbar-right">
+        <ThemeToggle />
+        <button
+          className="topbar-burger"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <CloseIcon size={18} /> : <MenuIcon size={18} />}
+        </button>
+      </div>
+
+      {menuOpen && (
+        <nav className="topbar-mobile-nav" aria-label="Section navigation (mobile)">
+          {SECTIONS.map((s) => (
+            <button
+              key={s.id}
+              className={`topbar-mobile-link${active === s.id ? ' active' : ''}`}
+              onClick={() => scrollTo(s.id)}
+            >
+              {s.label}
+            </button>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

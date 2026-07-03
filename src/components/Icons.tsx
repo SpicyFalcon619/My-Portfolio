@@ -116,3 +116,19 @@ export function SparkIcon({ size = 16, className }: IconProps) {
     </svg>
   );
 }
+
+export function MenuIcon({ size = 18, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M4 6.5h16M4 12h16M4 17.5h16" />
+    </svg>
+  );
+}
+
+export function CloseIcon({ size = 18, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5" />
+    </svg>
+  );
+}
