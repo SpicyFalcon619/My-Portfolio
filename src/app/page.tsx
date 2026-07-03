@@ -1,14 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 
 import ThemeToggle from '@/components/ThemeToggle';
 import ScrollReveal from '@/components/ScrollReveal';
 import MagneticButton from '@/components/MagneticButton';
 import ProjectCard from '@/components/ProjectCard';
+import Dock from '@/components/Dock';
 
 export default function HomePage() {
   const scrollTo = (id: string) => {
@@ -21,364 +21,373 @@ export default function HomePage() {
 
   return (
     <>
-      <header>
-        <Link className="brand" href="/" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}>
-          <MagneticButton className="logo">
-            <Image src="/assets/my-logo.png" alt="Ahmad Maruf Hossain Logo" width={52} height={52} style={{ objectFit: 'contain' }} priority />
-          </MagneticButton>
-          <div>
-            <div style={{ fontWeight: 800 }}>Ahmad Maruf Hossain</div>
-            <div style={{ fontSize: '12px', color: 'var(--muted)' }}>CSE • United International University</div>
-          </div>
-        </Link>
+      {/* BRAND MARK */}
+      <motion.button
+        className="brand-mark"
+        onClick={() => scrollTo('hero')}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        aria-label="Back to top"
+      >
+        <span className="logo-wrap">
+          <Image src="/assets/my-logo.png" alt="" width={26} height={26} style={{ objectFit: 'contain' }} priority />
+        </span>
+        <span>
+          <span className="name">Ahmad Maruf Hossain</span>
+          <span className="role">CSE &middot; UIU</span>
+        </span>
+      </motion.button>
 
-        <nav aria-label="primary navigation">
-          <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a>
-          <a href="#education" onClick={(e) => { e.preventDefault(); scrollTo('education'); }}>Education</a>
-          <a href="#timeline" onClick={(e) => { e.preventDefault(); scrollTo('timeline'); }}>Timeline</a>
-          <a href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects'); }}>Projects</a>
-          <a href="#skills" onClick={(e) => { e.preventDefault(); scrollTo('skills'); }}>Skills</a>
-          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
-        </nav>
+      <ThemeToggle />
 
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-          <ThemeToggle />
-        </div>
-      </header>
+      <div className="wrap">
+        <main>
+          {/* HERO */}
+          <ScrollReveal id="hero" className="hero">
+            <div className="glow-blob accent" style={{ width: 420, height: 420, top: -120, left: -160 }} />
+            <div className="glow-blob accent-2" style={{ width: 320, height: 320, top: 80, right: -120 }} />
 
-      <main>
-        {/* HERO */}
-        <ScrollReveal id="hero" className="hero" direction="left">
-          <div>
-            <motion.div 
-              className="hi"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              Undergrad • CSE • UIU
-            </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              Ahmad Maruf <span className="accent">Hossain</span>
-            </motion.h1>
+            <div>
+              <motion.div
+                className="hero-eyebrow"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                // undergrad · cse · uiu
+              </motion.div>
 
-            <motion.div 
-              className="lead"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              style={{ marginTop: '12px', minHeight: '60px' }}
-            >
-              <TypeAnimation
-                sequence={[
-                  'I tinker with code, Linux, and blockchains. Self-taught coder who loves gaming, problem-solving, and unsolved mysteries. Aiming to become a solid software / AI / Web3 engineer. Gamer tag: spicyfalcon619',
-                  1000,
-                ]}
-                wrapper="span"
-                speed={70}
-                cursor={true}
-              />
-            </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                Ahmad Maruf <span className="accent">Hossain</span>
+              </motion.h1>
 
-            <motion.div 
-              className="mini" 
-              style={{ marginTop: '14px' }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-            >
-              <div className="pill">C • C++ • Java</div>
-              <div className="pill">Linux Enthusiast</div>
-              <div className="pill">Esports Player</div>
-            </motion.div>
+              <motion.div
+                className="lead"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <TypeAnimation
+                  sequence={[
+                    'I tinker with code, Linux, and blockchains. Self-taught coder who loves gaming, problem-solving, and unsolved mysteries. Aiming to become a solid software / AI / Web3 engineer. Gamer tag: spicyfalcon619',
+                    1000,
+                  ]}
+                  wrapper="span"
+                  speed={70}
+                  cursor={true}
+                />
+              </motion.div>
 
-            <motion.div 
-              style={{ marginTop: '24px', display: 'flex', gap: '10px' }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-            >
-              <MagneticButton>
-                <a className="pill" href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects'); }}>See Projects →</a>
-              </MagneticButton>
-              <MagneticButton>
-                <a className="pill" href="https://github.com/SpicyFalcon619" target="_blank" rel="noreferrer">Github</a>
-              </MagneticButton>
-              <MagneticButton>
-                <a className="pill" href="https://www.linkedin.com/in/ahmad-maruf-hossain/" target="_blank" rel="noreferrer">LinkedIn</a>
-              </MagneticButton>
-            </motion.div>
-          </div>
+              <motion.div
+                className="mini"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                <div className="pill">C · C++ · Java</div>
+                <div className="pill">Linux Enthusiast</div>
+                <div className="pill">Esports Player</div>
+              </motion.div>
 
-          <motion.aside 
-            className="card" 
-            aria-hidden={false}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <div className="avatar">
-              <Image src="/assets/avatar.jpg" alt="Ahmad Maruf Hossain" width={340} height={320} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} priority />
+              <motion.div
+                className="hero-actions"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 }}
+              >
+                <MagneticButton>
+                  <a className="btn primary" href="#projects" onClick={(e) => { e.preventDefault(); scrollTo('projects'); }}>See Projects →</a>
+                </MagneticButton>
+                <MagneticButton>
+                  <a className="btn" href="https://github.com/SpicyFalcon619" target="_blank" rel="noreferrer">GitHub</a>
+                </MagneticButton>
+                <MagneticButton>
+                  <a className="btn" href="https://www.linkedin.com/in/ahmad-maruf-hossain/" target="_blank" rel="noreferrer">LinkedIn</a>
+                </MagneticButton>
+              </motion.div>
             </div>
 
-            <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <motion.aside
+              className="panel hero-card accent-2"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <div className="avatar">
+                <Image src="/assets/avatar.jpg" alt="Ahmad Maruf Hossain" width={340} height={300} style={{ width: '100%', height: '100%', objectFit: 'cover' }} priority />
+              </div>
+
+              <div className="hero-card-meta">
                 <div>
-                  <div style={{ fontWeight: 800 }}>SpicyFalcon619</div>
-                  <div style={{ fontSize: 13, color: 'var(--muted)' }}>Valorant: Gold 1</div>
+                  <div className="tag-name">SpicyFalcon619</div>
+                  <div className="tag-sub">Valorant: Gold 1</div>
                 </div>
-                <div style={{ textAlign: 'right', fontSize: 12, color: 'var(--muted)' }}>
-                  <div>Award</div>
-                  <div style={{ fontWeight: 700 }}>Best Emerging Team</div>
-                  <div style={{ fontWeight: 700 }}>Blockchain Category</div>
-                  <div style={{ fontWeight: 700 }}>UIU CSE FEST 2025</div>
+                <div className="award">
+                  Award
+                  <strong>Best Emerging Team</strong>
+                  <strong>Blockchain Category</strong>
+                  <strong>UIU CSE FEST 2025</strong>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 14 }}>
                 <MagneticButton><a className="pill" href="mailto:a.marufhossain619@gmail.com">Email</a></MagneticButton>
                 <MagneticButton><a className="pill" href="https://www.instagram.com/spicy_falconn/" target="_blank" rel="noreferrer">Instagram</a></MagneticButton>
               </div>
-            </div>
-          </motion.aside>
-        </ScrollReveal>
+            </motion.aside>
+          </ScrollReveal>
 
-        {/* ABOUT */}
-        <ScrollReveal id="about">
-          <div className="card" style={{ padding: 18 }}>
-            <h2 style={{ marginBottom: 8 }}>About</h2>
-            <p style={{ color: 'var(--muted)' }}>
-              I&apos;m a passionate CSE undergrad at United International University, currently in my 2nd year. My journey in tech started with curiosity about how things work under the hood, leading me to explore system-level programming, blockchain technology, and software development.
-            </p>
-            <p style={{ color: 'var(--muted)', marginTop: 8 }}>
-              When I&apos;m not coding, you&apos;ll find me competing in esports, solving Rubik&apos;s cubes, or tinkering with my Arch Linux with Hyprland setup. I believe in learning by building, which is why I work on projects like Wastopia and various cipher implementations to deepen my understanding of technology.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        {/* EDUCATION */}
-        <ScrollReveal id="education">
-          <h2 style={{ marginBottom: 12 }}>Education</h2>
-          <div className="education-timeline">
-            <ScrollReveal direction="left" className="education-item card" delay={0.1}>
-              <div className="education-header">
-                <div>
-                  <h3 style={{ marginBottom: 4 }}>Bachelor of Science in Computer Science & Engineering</h3>
-                  <div style={{ color: 'var(--accent1)', fontWeight: 600, fontSize: 14 }}>United International University</div>
-                </div>
-                <div style={{ textAlign: 'right', color: 'var(--muted)', fontSize: 13 }}>
-                  <div>June 2024 - Present</div>
-                  <div style={{ fontWeight: 600 }}>2nd Year</div>
-                </div>
-              </div>
-              <p style={{ color: 'var(--muted)', marginTop: 8 }}>
-                Currently pursuing my undergraduate degree. Focusing on core CS fundamentals, programming languages, and emerging tech like blockchain and AI.
+          {/* ABOUT */}
+          <ScrollReveal id="about" parallax={16}>
+            <h2>About</h2>
+            <div className="panel info-panel">
+              <p>
+                I&apos;m a passionate CSE undergrad at United International University, currently in my 2nd year. My journey in tech started with curiosity about how things work under the hood, leading me to explore system-level programming, blockchain technology, and software development.
               </p>
-              <div style={{ marginTop: 10, display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <span className="pill">Data Structures</span>
-                <span className="pill">Algorithms</span>
-                <span className="pill">OOP</span>
-                <span className="pill">Database Systems</span>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="right" className="education-item card" delay={0.2} style={{ marginTop: 12 }}>
-              <div className="education-header">
-                <div>
-                  <h3 style={{ marginBottom: 4 }}>Higher Secondary Certificate (HSC)</h3>
-                  <div style={{ color: 'var(--accent1)', fontWeight: 600, fontSize: 14 }}>Sena Public School & College</div>
-                </div>
-                <div style={{ textAlign: 'right', color: 'var(--muted)', fontSize: 13 }}>
-                  <div>2022 - 2023</div>
-                </div>
-              </div>
-              <p style={{ color: 'var(--muted)', marginTop: 8 }}>
-                Completed higher secondary with a focus on Mathematics, Physics, and Chemistry - a solid foundation for CS studies.
+              <p>
+                When I&apos;m not coding, you&apos;ll find me competing in esports, solving Rubik&apos;s cubes, or tinkering with my Arch Linux with Hyprland setup. I believe in learning by building, which is why I work on projects like Wastopia and various cipher implementations to deepen my understanding of technology.
               </p>
-              <div style={{ marginTop: 10, display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <span className="pill">Mathematics</span>
-                <span className="pill">Physics</span>
-                <span className="pill">Chemistry</span>
-                <span className="pill">ICT</span>
+            </div>
+          </ScrollReveal>
+
+          {/* EDUCATION */}
+          <ScrollReveal id="education">
+            <h2>Education</h2>
+            <div className="education-timeline">
+              <ScrollReveal direction="left" className="panel education-item" delay={0.1}>
+                <div className="education-header">
+                  <div>
+                    <h3>Bachelor of Science in Computer Science &amp; Engineering</h3>
+                    <div className="education-org">United International University</div>
+                  </div>
+                  <div className="education-date">
+                    <div>June 2024 - Present</div>
+                    <div className="yr">2nd Year</div>
+                  </div>
+                </div>
+                <p className="education-body">
+                  Currently pursuing my undergraduate degree. Focusing on core CS fundamentals, programming languages, and emerging tech like blockchain and AI.
+                </p>
+                <div className="education-tags">
+                  <span className="tag">Data Structures</span>
+                  <span className="tag">Algorithms</span>
+                  <span className="tag">OOP</span>
+                  <span className="tag">Database Systems</span>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal direction="right" className="panel education-item accent-2" delay={0.2}>
+                <div className="education-header">
+                  <div>
+                    <h3>Higher Secondary Certificate (HSC)</h3>
+                    <div className="education-org">Sena Public School &amp; College</div>
+                  </div>
+                  <div className="education-date">
+                    <div>2022 - 2023</div>
+                  </div>
+                </div>
+                <p className="education-body">
+                  Completed higher secondary with a focus on Mathematics, Physics, and Chemistry - a solid foundation for CS studies.
+                </p>
+                <div className="education-tags">
+                  <span className="tag">Mathematics</span>
+                  <span className="tag">Physics</span>
+                  <span className="tag">Chemistry</span>
+                  <span className="tag">ICT</span>
+                </div>
+              </ScrollReveal>
+            </div>
+          </ScrollReveal>
+
+          {/* TIMELINE */}
+          <ScrollReveal id="timeline">
+            <h2>My Journey</h2>
+            <div className="panel static timeline-container">
+              <div className="timeline">
+                <ScrollReveal delay={0.1} className="timeline-item">
+                  <div className="timeline-dot"></div>
+                  <div className="timeline-content">
+                    <div className="timeline-date">January 2025</div>
+                    <h4>UIU CSE FEST 2025 Winner</h4>
+                    <p>Won &quot;Best Emerging Team&quot; in Blockchain Category with Wastopia project</p>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.2} className="timeline-item">
+                  <div className="timeline-dot"></div>
+                  <div className="timeline-content">
+                    <div className="timeline-date">2024</div>
+                    <h4>Started University Journey</h4>
+                    <p>Began CSE at United International University, diving deep into programming and computer science fundamentals</p>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.3} className="timeline-item">
+                  <div className="timeline-dot"></div>
+                  <div className="timeline-content">
+                    <div className="timeline-date">2023</div>
+                    <h4>Completed HSC</h4>
+                    <p>Graduated from Sena Public School &amp; College with Science background</p>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.4} className="timeline-item">
+                  <div className="timeline-dot"></div>
+                  <div className="timeline-content">
+                    <div className="timeline-date">2022</div>
+                    <h4>Started Higher Secondary</h4>
+                    <p>Began HSC journey at Sena Public School &amp; College, building foundation in sciences</p>
+                  </div>
+                </ScrollReveal>
               </div>
-            </ScrollReveal>
-          </div>
-        </ScrollReveal>
+            </div>
+          </ScrollReveal>
 
-        {/* TIMELINE */}
-        <ScrollReveal id="timeline">
-          <h2 style={{ marginBottom: 12 }}>My Journey</h2>
-          <div className="timeline-container card" style={{ padding: 24 }}>
-            <div className="timeline">
-              <ScrollReveal delay={0.1} className="timeline-item">
-                <div className="timeline-dot"></div>
-                <div className="timeline-content">
-                  <div className="timeline-date">January 2025</div>
-                  <h4>UIU CSE FEST 2025 Winner</h4>
-                  <p>Won &quot;Best Emerging Team&quot; in Blockchain Category with Wastopia project</p>
+          {/* PROJECTS */}
+          <ScrollReveal id="projects">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
+              <h2>Projects</h2>
+              <div className="section-note">click a card to expand</div>
+            </div>
+
+            <div className="projects">
+              <ProjectCard
+                title="UIUNest"
+                description="A comprehensive housing, flatmate matching, and peer-to-peer marketplace platform built exclusively for UIU students and landlords."
+                tags={['HTML', 'CSS', 'JavaScript', 'Marketplace']}
+                extraInfo="Simplifying student housing and item marketplace specifically designed for the UIU community."
+                link="https://uiunest-production.up.railway.app/"
+                linkText="View Live Project"
+                variant="accent"
+              />
+
+              <ProjectCard
+                title="YT-DeepNote"
+                description="Your ultimate companion for deep learning on YouTube. Seamlessly capture timestamped Markdown notes, drop precision bookmarks, capture video screenshots, and 1-click sync your entire learning session directly to a Notion workspace."
+                tags={['JavaScript', 'Chrome Extension', 'Notion API']}
+                extraInfo="Boost your productivity and never lose track of a YouTube tutorial again with Notion integration."
+                link="https://github.com/SpicyFalcon619/YT-DeepNote"
+                linkText="View on GitHub"
+                variant="accent-2"
+              />
+
+              <ProjectCard
+                title="Wastopia - Waste to blockchain"
+                description="Design & research for a blockchain-based waste-tracking & incentive platform."
+                tags={['Blockchain', 'Research', 'IoT (planned)']}
+                extraInfo="Won Emerging Team (Blockchain) at UIU CSE FEST 2025."
+                link="https://project-wastopia.vercel.app/"
+                linkText="View Live Project"
+                variant="accent"
+              />
+
+              <ProjectCard
+                title="spicyfalcon-os"
+                description="A browser-based OS simulation acting as an interactive portfolio and desktop environment."
+                tags={['JavaScript', 'HTML', 'CSS', 'OS Simulation']}
+                extraInfo="A creative way to showcase skills through a familiar desktop UI entirely in the browser."
+                link="https://spicyfalcon-os.vercel.app"
+                linkText="View Live Project"
+                variant="accent-2"
+              />
+
+              <ProjectCard
+                title="Morse Code Translator"
+                description="Classic Morse code translator for learning and teaching Java."
+                tags={['Java', 'Crypto']}
+                extraInfo="Console and GUI implementations available."
+                link="https://spicy-morse-code-java.vercel.app/"
+                linkText="View Live Project"
+                variant="accent"
+              />
+
+              <ProjectCard
+                title="OOP Notes (Notion)"
+                description="Teaching notes prepared for classmates, including small utilities, references, and concepts explained in a simple and structured way."
+                tags={['Teaching', 'Notion']}
+                extraInfo="OOP (Java) notes created for classmates, available on Notion."
+                link="https://bold-ocelot-ae1.notion.site/Theory-1d9b38bc56448124b6fce299b5459c4e"
+                linkText="View Notes"
+                variant="accent-2"
+              />
+            </div>
+          </ScrollReveal>
+
+          {/* SKILLS */}
+          <ScrollReveal id="skills">
+            <h2>Skills</h2>
+            <div className="panel info-panel">
+              <div className="skills-category">
+                <h3>Programming Languages</h3>
+                <div className="chips">
+                  <MagneticButton><div className="chip">C</div></MagneticButton>
+                  <MagneticButton><div className="chip">C++</div></MagneticButton>
+                  <MagneticButton><div className="chip">Java</div></MagneticButton>
+                  <MagneticButton><div className="chip">HTML/CSS/JS</div></MagneticButton>
+                  <MagneticButton><div className="chip">Python (Basic)</div></MagneticButton>
                 </div>
-              </ScrollReveal>
+              </div>
 
-              <ScrollReveal delay={0.2} className="timeline-item">
-                <div className="timeline-dot"></div>
-                <div className="timeline-content">
-                  <div className="timeline-date">2024</div>
-                  <h4>Started University Journey</h4>
-                  <p>Began CSE at United International University, diving deep into programming and computer science fundamentals</p>
+              <div className="skills-category">
+                <h3>Technologies &amp; Tools</h3>
+                <div className="chips">
+                  <MagneticButton><div className="chip">Linux (Arch)</div></MagneticButton>
+                  <MagneticButton><div className="chip">Hyprland</div></MagneticButton>
+                  <MagneticButton><div className="chip">Git</div></MagneticButton>
+                  <MagneticButton><div className="chip">Notion API</div></MagneticButton>
+                  <MagneticButton><div className="chip">Blockchain</div></MagneticButton>
+                  <MagneticButton><div className="chip">IoT Concepts</div></MagneticButton>
                 </div>
-              </ScrollReveal>
+              </div>
 
-              <ScrollReveal delay={0.3} className="timeline-item">
-                <div className="timeline-dot"></div>
-                <div className="timeline-content">
-                  <div className="timeline-date">2023</div>
-                  <h4>Completed HSC</h4>
-                  <p>Graduated from Sena Public School & College with Science background</p>
+              <div className="skills-category">
+                <h3>Soft Skills</h3>
+                <div className="chips">
+                  <MagneticButton><div className="chip">Problem Solving</div></MagneticButton>
+                  <MagneticButton><div className="chip">Research</div></MagneticButton>
+                  <MagneticButton><div className="chip">Team Collaboration</div></MagneticButton>
+                  <MagneticButton><div className="chip">Quick Learning</div></MagneticButton>
                 </div>
-              </ScrollReveal>
-
-              <ScrollReveal delay={0.4} className="timeline-item">
-                <div className="timeline-dot"></div>
-                <div className="timeline-content">
-                  <div className="timeline-date">2022</div>
-                  <h4>Started Higher Secondary</h4>
-                  <p>Began HSC journey at Sena Public School & College, building foundation in sciences</p>
-                </div>
-              </ScrollReveal>
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
 
-        {/* PROJECTS */}
-        <ScrollReveal id="projects">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <h2 style={{ marginBottom: 8 }}>Projects</h2>
-            <div style={{ color: 'var(--muted)', fontSize: 13 }}>Click a card to expand</div>
-          </div>
+          {/* CONTACT */}
+          <ScrollReveal id="contact">
+            <h2>Contact</h2>
+            <div className="contact-grid">
+              <form action="https://formspree.io/f/myzdbzdy" method="POST" className="panel">
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <textarea name="message" placeholder="Message" rows={4} required></textarea>
+                <MagneticButton>
+                  <button type="submit" className="primary" style={{ width: '100%' }}>Send</button>
+                </MagneticButton>
+              </form>
 
-          <div className="projects" style={{ marginTop: 12 }}>
-            <ProjectCard 
-              title="UIUNest" 
-              description="A comprehensive housing, flatmate matching, and peer-to-peer marketplace platform built exclusively for UIU students and landlords." 
-              tags={['HTML', 'CSS', 'JavaScript', 'Marketplace']} 
-              extraInfo="Simplifying student housing and item marketplace specifically designed for the UIU community." 
-              link="https://uiunest-production.up.railway.app/" 
-              linkText="View Live Project" 
-            />
-
-            <ProjectCard 
-              title="YT-DeepNote" 
-              description="Your ultimate companion for deep learning on YouTube. Seamlessly capture timestamped Markdown notes, drop precision bookmarks, capture video screenshots, and 1-click sync your entire learning session directly to a Notion workspace." 
-              tags={['JavaScript', 'Chrome Extension', 'Notion API']} 
-              extraInfo="Boost your productivity and never lose track of a YouTube tutorial again with Notion integration." 
-              link="https://github.com/SpicyFalcon619/YT-DeepNote" 
-              linkText="View on GitHub" 
-            />
-
-            <ProjectCard 
-              title="Wastopia - Waste to blockchain" 
-              description="Design & research for a blockchain-based waste-tracking & incentive platform." 
-              tags={['Blockchain', 'Research', 'IoT (planned)']} 
-              extraInfo="Won Emerging Team (Blockchain) at UIU CSE FEST 2025." 
-              link="https://project-wastopia.vercel.app/" 
-              linkText="View Live Project" 
-            />
-            
-            <ProjectCard 
-              title="spicyfalcon-os" 
-              description="A browser-based OS simulation acting as an interactive portfolio and desktop environment." 
-              tags={['JavaScript', 'HTML', 'CSS', 'OS Simulation']} 
-              extraInfo="A creative way to showcase skills through a familiar desktop UI entirely in the browser." 
-              link="https://spicyfalcon-os.vercel.app" 
-              linkText="View Live Project" 
-            />
-
-            <ProjectCard 
-              title="Morse Code Translator" 
-              description="Classic Morse code translator for learning and teaching Java." 
-              tags={['Java', 'Crypto']} 
-              extraInfo="Console and GUI implementations available." 
-              link="https://spicy-morse-code-java.vercel.app/" 
-              linkText="View Live Project" 
-            />
-
-            <ProjectCard 
-              title="OOP Notes (Notion)" 
-              description="Teaching notes prepared for classmates, including small utilities, references, and concepts explained in a simple and structured way." 
-              tags={['Teaching', 'Notion']} 
-              extraInfo="OOP (Java) notes created for classmates, available on Notion." 
-              link="https://bold-ocelot-ae1.notion.site/Theory-1d9b38bc56448124b6fce299b5459c4e" 
-              linkText="View Notes" 
-            />
-          </div>
-        </ScrollReveal>
-
-        {/* SKILLS */}
-        <ScrollReveal id="skills">
-          <h2 style={{ marginBottom: 10 }}>Skills</h2>
-          <div className="card" style={{ padding: 18 }}>
-            <h3 style={{ marginBottom: 12, fontSize: 16 }}>Programming Languages</h3>
-            <div className="chips">
-              <MagneticButton><div className="chip">C</div></MagneticButton>
-              <MagneticButton><div className="chip">C++</div></MagneticButton>
-              <MagneticButton><div className="chip">Java</div></MagneticButton>
-              <MagneticButton><div className="chip">HTML/CSS/JS</div></MagneticButton>
-              <MagneticButton><div className="chip">Python (Basic)</div></MagneticButton>
+              <div className="panel info-panel accent-2" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <h3>Get in touch</h3>
+                <p>Email me at <a href="mailto:a.marufhossain619@gmail.com" style={{ color: 'var(--accent)' }}>a.marufhossain619@gmail.com</a></p>
+                <p>Follow me on social media or check my GitHub for projects.</p>
+              </div>
             </div>
+          </ScrollReveal>
 
-            <h3 style={{ marginTop: 16, marginBottom: 12, fontSize: 16 }}>Technologies & Tools</h3>
-            <div className="chips">
-              <MagneticButton><div className="chip">Linux (Arch)</div></MagneticButton>
-              <MagneticButton><div className="chip">Hyprland</div></MagneticButton>
-              <MagneticButton><div className="chip">Git</div></MagneticButton>
-              <MagneticButton><div className="chip">Notion API</div></MagneticButton>
-              <MagneticButton><div className="chip">Blockchain</div></MagneticButton>
-              <MagneticButton><div className="chip">IoT Concepts</div></MagneticButton>
-            </div>
+          <footer>© 2026 Ahmad Maruf Hossain — built with Next.js</footer>
+        </main>
+      </div>
 
-            <h3 style={{ marginTop: 16, marginBottom: 12, fontSize: 16 }}>Soft Skills</h3>
-            <div className="chips">
-              <MagneticButton><div className="chip">Problem Solving</div></MagneticButton>
-              <MagneticButton><div className="chip">Research</div></MagneticButton>
-              <MagneticButton><div className="chip">Team Collaboration</div></MagneticButton>
-              <MagneticButton><div className="chip">Quick Learning</div></MagneticButton>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* CONTACT */}
-        <ScrollReveal id="contact">
-          <h2>Contact</h2>
-          <div className="contact-grid">
-            <form action="https://formspree.io/f/myzdbzdy" method="POST">
-              <input type="text" name="name" placeholder="Name" required />
-              <input type="email" name="email" placeholder="Email" required />
-              <textarea name="message" placeholder="Message" rows={4} required></textarea>
-              <MagneticButton>
-                <button type="submit" className="primary" style={{ width: '100%' }}>Send</button>
-              </MagneticButton>
-            </form>
-
-            <div className="card" style={{ padding: 18, display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <h3>Get in touch</h3>
-              <p style={{ color: 'var(--muted)' }}>Email me at <a href="mailto:a.marufhossain619@gmail.com" style={{ color: 'var(--accent1)' }}>a.marufhossain619@gmail.com</a></p>
-              <p style={{ color: 'var(--muted)' }}>Follow me on social media or check my GitHub for projects.</p>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        <footer>© 2025 Ahmad Maruf Hossain</footer>
-      </main>
+      <Dock />
 
       {/* SOCIAL SIDEBAR */}
-      <motion.div 
+      <motion.div
         className="social-sidebar"
-        initial={{ opacity: 0, x: -50 }}
+        initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
       >

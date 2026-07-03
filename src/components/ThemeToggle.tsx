@@ -14,8 +14,8 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className="theme-btn magnetic" aria-label="Toggle dark/light theme">
-        <div style={{ width: 20, height: 20 }} />
+      <button className="theme-fab" aria-label="Toggle dark/light theme">
+        <div style={{ width: 18, height: 18 }} />
       </button>
     );
   }
@@ -24,7 +24,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="theme-btn magnetic"
+      className="theme-fab"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       title="Toggle theme"
       aria-label="Toggle dark/light theme"

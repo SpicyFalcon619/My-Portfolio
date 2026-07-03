@@ -11,9 +11,10 @@ interface Props {
   extraInfo?: string;
   link?: string;
   linkText?: string;
+  variant?: 'accent' | 'accent-2';
 }
 
-export default function ProjectCard({ title, description, tags, extraInfo, link, linkText = 'View Project' }: Props) {
+export default function ProjectCard({ title, description, tags, extraInfo, link, linkText = 'View Project', variant = 'accent' }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const isExternal = link?.startsWith('http');
@@ -21,12 +22,10 @@ export default function ProjectCard({ title, description, tags, extraInfo, link,
   return (
     <motion.div
       layout
-      className="proj"
+      className={`panel proj${variant === 'accent-2' ? ' accent-2' : ''}`}
       onClick={() => setIsExpanded(!isExpanded)}
-      whileHover={{ y: -6, scale: 1.01 }}
       transition={{ layout: { type: 'spring', stiffness: 300, damping: 30 } }}
       tabIndex={0}
-      style={{ cursor: 'pointer' }}
     >
       <motion.h3 layout="position">{title}</motion.h3>
       <motion.p layout="position">{description}</motion.p>

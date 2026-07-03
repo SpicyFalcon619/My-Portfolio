@@ -1,45 +1,42 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, useSpring } from 'framer-motion';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export default function CursorTrail() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
 
-  const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
-  const cursorX = useSpring(0, springConfig);
-  const cursorY = useSpring(0, springConfig);
+  const dotX = useMotionValue(0);
+  const dotY = useMotionValue(0);
+  const ringX = useSpring(dotX, { damping: 30, stiffness: 260, mass: 0.4 });
+  const ringY = useSpring(dotY, { damping: 30, stiffness: 260, mass: 0.4 });
 
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      cursorX.set(e.clientX - 10);
-      cursorY.set(e.clientY - 10);
+    const move = (e: MouseEvent) => {
+      dotX.set(e.clientX);
+      dotY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
     };
+    const hide = () => setIsVisible(false);
 
-    const hideCursor = () => setIsVisible(false);
-
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseleave', hideCursor);
-
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseleave', hide);
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      window.removeEventListener('mouseleave', hideCursor);
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('mouseleave', hide);
     };
-  }, [cursorX, cursorY, isVisible]);
-
-  if (typeof window === 'undefined') return null;
+  }, [dotX, dotY, isVisible]);
 
   return (
-    <motion.div
-      className="cursor-trail"
-      style={{
-        x: cursorX,
-        y: cursorY,
-        opacity: isVisible ? 0.6 : 0,
-      }}
-    />
+    <>
+      <motion.div
+        className="custom-cursor-dot"
+        style={{ x: dotX, y: dotY, opacity: isVisible ? 1 : 0 }}
+      />
+      <motion.div
+        className="custom-cursor"
+        style={{ x: ringX, y: ringY, opacity: isVisible ? 1 : 0 }}
+      />
+    </>
   );
 }

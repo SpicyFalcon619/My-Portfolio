@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion, useScroll, useTransform, Variants } from 'framer-motion';
+import { ReactNode, useRef } from 'react';
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -10,6 +10,7 @@ interface ScrollRevealProps {
   delay?: number;
   id?: string;
   style?: React.CSSProperties;
+  parallax?: number;
 }
 
 export default function ScrollReveal({
@@ -18,21 +19,32 @@ export default function ScrollReveal({
   direction = 'up',
   delay = 0,
   id,
-  style
+  style,
+  parallax = 0,
 }: ScrollRevealProps) {
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [parallax, -parallax]);
+
   const variants: Variants = {
     hidden: {
       opacity: 0,
-      y: direction === 'up' ? 30 : 0,
-      x: direction === 'left' ? -50 : direction === 'right' ? 50 : 0,
+      filter: 'blur(8px)',
+      y: direction === 'up' ? 36 : 0,
+      x: direction === 'left' ? -60 : direction === 'right' ? 60 : 0,
     },
     visible: {
       opacity: 1,
+      filter: 'blur(0px)',
       y: 0,
       x: 0,
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
+        duration: 0.7,
+        ease: [0.2, 0.8, 0.2, 1],
         delay,
       },
     },
@@ -40,9 +52,10 @@ export default function ScrollReveal({
 
   return (
     <motion.section
+      ref={ref}
       id={id}
       className={className}
-      style={style}
+      style={parallax ? { ...style, y } : style}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-50px' }}
