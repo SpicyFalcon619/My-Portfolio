@@ -13,7 +13,7 @@ const TECH = [
 
 const HIGHLIGHTS = [
   { icon: CapIcon, text: 'Learning ML/AI from scratch via ml-research-journey — Python → NumPy/Pandas → Classical ML' },
-  { icon: LayersIcon, text: 'Built ClearPath, a full-stack university clearance system, out of frustration with paper forms' },
+  { icon: LayersIcon, text: 'Built UIUNest from scratch — a housing & flatmate-matching platform for UIU students; the project I\'m proudest of, and a fully original idea' },
   { icon: TrophyIcon, text: 'Won "Best Emerging Team" at UIU CSE FEST 2025 with Wastopia, a blockchain waste-tracking platform' },
   { icon: SparkIcon, text: 'Also teach — wrote OOP (Java) notes classmates actually use, hosted on Notion' },
   { icon: JoystickIcon, text: 'Off the keyboard: esports (SpicyFalcon619, Valorant Gold 1), Rubik’s cubes, tuning Arch Linux + Hyprland' },

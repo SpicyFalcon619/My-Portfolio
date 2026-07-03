@@ -1,11 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ComponentType } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import { SparkIcon, LayersIcon, PinIcon, CompassIcon, CodeIcon, JoystickIcon, CapIcon } from './Icons';
 
-const PROJECTS = [
+type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  linkText: string;
+  repoLink?: string;
+  icon: ComponentType<{ size?: number; className?: string }>;
+};
+
+const PROJECTS: Project[] = [
+  {
+    title: 'UIUNest',
+    description: 'My proudest build — a fully original housing & flatmate-matching platform for UIU students, not a tutorial clone. Transparent all-in billing (rent, utilities, fees, no hidden costs), an 8-dimension compatibility algorithm for flatmate matching, a secondary marketplace for dorm essentials, automated mess-bill splitting, and NID-verified landlords.',
+    tags: ['Next.js', 'TypeScript', 'Marketplace', 'Full-Stack'],
+    link: 'https://uiu-nest-core.vercel.app',
+    linkText: 'View Live Project',
+    repoLink: 'https://github.com/SpicyFalcon619/uiu-nest-core',
+    icon: PinIcon,
+  },
   {
     title: 'ml-research-journey',
     description: 'Documenting my machine learning & AI journey from the ground up — Python foundations through NumPy, Pandas, and now Classical ML, working toward neural networks.',
@@ -13,22 +32,6 @@ const PROJECTS = [
     link: 'https://github.com/SpicyFalcon619/ml-research-journey',
     linkText: 'View on GitHub',
     icon: SparkIcon,
-  },
-  {
-    title: 'ClearPath',
-    description: 'A full-stack University Clearance System with Student, Department Admin, and Master Admin portals — real-time approval tracking and PDF certificate generation, replacing paper-based clearance.',
-    tags: ['PHP', 'MySQL', 'Full-Stack'],
-    link: 'https://github.com/SpicyFalcon619/ClearPath',
-    linkText: 'View on GitHub',
-    icon: LayersIcon,
-  },
-  {
-    title: 'UIUNest',
-    description: 'A comprehensive housing, flatmate matching, and peer-to-peer marketplace platform built exclusively for UIU students and landlords.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Marketplace'],
-    link: 'https://uiunest-production.up.railway.app/',
-    linkText: 'View Live Project',
-    icon: PinIcon,
   },
   {
     title: 'Wastopia',
@@ -45,6 +48,14 @@ const PROJECTS = [
     link: 'https://github.com/SpicyFalcon619/YT-DeepNote',
     linkText: 'View on GitHub',
     icon: CodeIcon,
+  },
+  {
+    title: 'ClearPath',
+    description: 'A full-stack university clearance system with real-time approval tracking and PDF certificate generation, replacing paper-based clearance.',
+    tags: ['PHP', 'MySQL', 'Full-Stack'],
+    link: 'https://github.com/SpicyFalcon619/ClearPath',
+    linkText: 'View on GitHub',
+    icon: LayersIcon,
   },
   {
     title: 'spicyfalcon-os',
@@ -123,6 +134,11 @@ export default function ProjectIndex() {
                   ))}
                 </div>
                 <a className="text-link" href={p.link} target="_blank" rel="noreferrer">{p.linkText} &rarr;</a>
+                {p.repoLink && (
+                  <a className="text-link" href={p.repoLink} target="_blank" rel="noreferrer" style={{ marginLeft: 16 }}>
+                    View on GitHub &rarr;
+                  </a>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
