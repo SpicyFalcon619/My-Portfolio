@@ -2,26 +2,26 @@
    Design tokens
    ============================================================ */
 :root {
-  --bg: #0c0a08;
-  --bg-rgb: 12, 10, 8;
-  --bg-elevated: #16120e;
-  --fg: #f5f0e8;
-  --muted: #a39a8d;
+  --bg: #0a0d12;
+  --bg-rgb: 10, 13, 18;
+  --bg-elevated: #131822;
+  --fg: #eef1f5;
+  --muted: #8b93a1;
 
-  --edge: rgba(245, 240, 232, 0.88);
+  --edge: rgba(238, 241, 245, 0.88);
   --glass-bg: rgba(255, 255, 255, 0.055);
   --glass-bg-strong: rgba(255, 255, 255, 0.09);
   --glass-border: rgba(255, 255, 255, 0.14);
 
-  --accent: #e1663d;
-  --accent-rgb: 225, 102, 61;
-  --accent-2: #d9a441;
-  --accent-2-rgb: 217, 164, 65;
+  --accent: #4d8dff;
+  --accent-rgb: 77, 141, 255;
+  --accent-2: #7c8797;
+  --accent-2-rgb: 124, 135, 151;
 
   --font-body: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
 
-  --particle-color: rgba(225, 102, 61, 0.25);
+  --particle-color: rgba(77, 141, 255, 0.25);
   --container: 1240px;
   --radius: 4px;
   --panel-bg: var(--bg-elevated);
@@ -30,23 +30,23 @@
 }
 
 :root.light {
-  --bg: #f6f1e7;
-  --bg-rgb: 246, 241, 231;
-  --bg-elevated: #fffdf9;
-  --fg: #251d15;
-  --muted: #6b6154;
+  --bg: #f2f4f8;
+  --bg-rgb: 242, 244, 248;
+  --bg-elevated: #ffffff;
+  --fg: #12161d;
+  --muted: #5b6472;
 
-  --edge: rgba(37, 29, 21, 0.88);
-  --glass-bg: rgba(37, 29, 21, 0.04);
-  --glass-bg-strong: rgba(37, 29, 21, 0.07);
-  --glass-border: rgba(37, 29, 21, 0.12);
+  --edge: rgba(18, 22, 29, 0.88);
+  --glass-bg: rgba(18, 22, 29, 0.04);
+  --glass-bg-strong: rgba(18, 22, 29, 0.07);
+  --glass-border: rgba(18, 22, 29, 0.12);
 
-  --accent: #c9522e;
-  --accent-rgb: 201, 82, 46;
-  --accent-2: #a8790a;
-  --accent-2-rgb: 168, 121, 10;
+  --accent: #2f5fd6;
+  --accent-rgb: 47, 95, 214;
+  --accent-2: #5b6472;
+  --accent-2-rgb: 91, 100, 114;
 
-  --particle-color: rgba(201, 82, 46, 0.13);
+  --particle-color: rgba(47, 95, 214, 0.13);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -111,7 +111,13 @@ h1, h2, h3, h4 { font-family: var(--font-body); }
   font-family: var(--font-mono); font-size: 11px; padding: 5px 10px;
   background: var(--panel-bg); border: 2px solid var(--edge); border-radius: var(--radius);
   color: var(--muted); font-weight: 600; display: inline-block;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
+.tag:hover {
+  color: var(--accent); border-color: var(--accent);
+  transform: translate(-2px, -2px); box-shadow: 3px 3px 0 0 var(--accent-2);
+}
+.tag:nth-child(3n+2):hover { color: var(--accent-2); border-color: var(--accent-2); box-shadow: 3px 3px 0 0 var(--accent); }
 .tag-row, .tech-grid { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .panel-surface {
