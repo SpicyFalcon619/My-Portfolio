@@ -14,13 +14,11 @@ const SECTIONS = [
 ];
 
 function DockItem({
-  id,
   label,
   active,
   mouseX,
   onClick,
 }: {
-  id: string;
   label: string;
   active: boolean;
   mouseX: MotionValue<number>;
@@ -94,7 +92,6 @@ export default function Dock() {
       {SECTIONS.map((s) => (
         <DockItem
           key={s.id}
-          id={s.id}
           label={s.label}
           active={active === s.id}
           mouseX={mouseX}

@@ -55,7 +55,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                // undergrad · cse · uiu
+                {'// undergrad · cse · uiu'}
               </motion.div>
 
               <motion.h1
