@@ -39,7 +39,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
             <span className="pill">Machine Learning</span>
             <span className="pill">C &middot; C++ &middot; Java</span>
             <span className="pill">Linux Enthusiast</span>
-            <span className="pill">Esports Player</span>
+            <span className="pill">Systems Programming</span>
           </div>
 
           <div className="hero-cta-row">

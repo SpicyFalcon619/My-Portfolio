@@ -101,7 +101,7 @@ export default function ProjectIndex() {
           ))}
         </div>
 
-        <div className="index-detail">
+        <div className={`index-detail v${active % 4}`}>
           <div className={`index-visual v${active % 4}`} aria-hidden="true">
             <ActiveIcon size={40} className="index-visual-icon" />
             <span className="index-visual-num mono">{String(active + 1).padStart(2, '0')}</span>

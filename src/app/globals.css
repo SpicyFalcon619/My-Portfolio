@@ -15,8 +15,8 @@
 
   --accent: #4d8dff;
   --accent-rgb: 77, 141, 255;
-  --accent-2: #7c8797;
-  --accent-2-rgb: 124, 135, 151;
+  --accent-2: #38bdf8;
+  --accent-2-rgb: 56, 189, 248;
 
   --font-body: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
@@ -43,8 +43,8 @@
 
   --accent: #2f5fd6;
   --accent-rgb: 47, 95, 214;
-  --accent-2: #5b6472;
-  --accent-2-rgb: 91, 100, 114;
+  --accent-2: #1e3a8a;
+  --accent-2-rgb: 30, 58, 138;
 
   --particle-color: rgba(47, 95, 214, 0.13);
 }
@@ -105,7 +105,14 @@ h1, h2, h3, h4 { font-family: var(--font-body); }
 .pill {
   font-family: var(--font-mono); background: var(--panel-bg); border: 2px solid var(--edge);
   padding: 7px 14px; border-radius: var(--radius); color: var(--muted); font-weight: 600; font-size: 12px;
+  display: inline-block;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
+.pill:hover {
+  color: var(--accent); border-color: var(--accent);
+  transform: translate(-2px, -2px); box-shadow: 3px 3px 0 0 var(--accent-2);
+}
+.pill:nth-of-type(2n):hover { color: var(--accent-2); border-color: var(--accent-2); box-shadow: 3px 3px 0 0 var(--accent); }
 
 .tag {
   font-family: var(--font-mono); font-size: 11px; padding: 5px 10px;
@@ -422,12 +429,13 @@ section:not(:first-of-type)::before {
 .index-row.active .index-title, .index-row.active .idx { color: var(--bg); }
 
 .index-detail { position: sticky; top: 100px; }
+.index-detail.v0 .index-detail-card, .index-detail.v2 .index-detail-card { box-shadow: 5px 5px 0 0 var(--accent); }
+.index-detail.v1 .index-detail-card, .index-detail.v3 .index-detail-card { box-shadow: 5px 5px 0 0 var(--accent-2); }
 .index-detail-card {
   padding: var(--pad-panel);
   background: var(--panel-bg);
   border: 2px solid var(--edge);
   border-radius: var(--radius);
-  box-shadow: 5px 5px 0 0 var(--accent);
 }
 .index-detail h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 800; margin-bottom: 12px; }
 .index-detail p { color: var(--muted); margin-bottom: 10px; max-width: 55ch; }
