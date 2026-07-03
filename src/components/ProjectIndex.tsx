@@ -91,16 +91,9 @@ export default function ProjectIndex() {
               key={proj.title}
               className={`index-row${active === i ? ' active' : ''}`}
               onClick={() => setActive(i)}
-              whileTap={{ scale: 0.97 }}
+              whileTap={{ scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 500, damping: 25 }}
             >
-              {active === i && (
-                <motion.span
-                  className="index-row-indicator"
-                  layoutId="index-row-indicator"
-                  transition={{ type: 'spring', stiffness: 500, damping: 32 }}
-                />
-              )}
               <span className="idx mono">{String(i + 1).padStart(2, '0')}</span>
               <span className="index-title">{proj.title}</span>
               <span className="index-tags">{proj.tags.join(' / ')}</span>

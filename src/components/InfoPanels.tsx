@@ -5,7 +5,11 @@ import { TrophyIcon, SparkIcon, GitHubIcon, CapIcon, LayersIcon, JoystickIcon } 
 import GitHubHeatmap from './GitHubHeatmap';
 import type { GitHubStats, ContributionData } from '@/lib/github';
 
-const TECH = ['C', 'C++', 'Java', 'HTML/CSS/JS', 'Python', 'NumPy', 'Pandas', 'Linux (Arch)', 'Hyprland', 'Git', 'Notion API', 'Blockchain', 'IoT Concepts'];
+const TECH = [
+  'C', 'C++', 'Java', 'HTML/CSS/JS', 'Python', 'NumPy', 'Pandas',
+  'TypeScript', 'React', 'Next.js', 'PHP', 'MySQL', 'Solidity',
+  'Linux (Arch)', 'Hyprland', 'Git', 'Notion API', 'Blockchain', 'IoT Concepts',
+];
 
 const HIGHLIGHTS = [
   { icon: CapIcon, text: 'Learning ML/AI from scratch via ml-research-journey — Python → NumPy/Pandas → Classical ML' },

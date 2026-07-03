@@ -7,7 +7,7 @@ import ScrollReveal from './ScrollReveal';
 import MagneticButton from './MagneticButton';
 import {
   GitHubIcon, LinkedInIcon, InstagramIcon, MailIcon,
-  PinIcon, CompassIcon, LayersIcon, CodeIcon,
+  PinIcon, CompassIcon, LayersIcon, CodeIcon, CapIcon,
 } from './Icons';
 import type { GitHubStats } from '@/lib/github';
 
@@ -74,7 +74,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
         >
           <div className="profile-header">
             <div className="profile-photo-round">
-              <Image src="/assets/avatar.jpg" alt="Ahmad Maruf Hossain" fill sizes="56px" priority />
+              <Image src="/assets/avatar.jpg" alt="Ahmad Maruf Hossain" fill sizes="104px" priority />
             </div>
             <div>
               <div className="profile-name-line">Ahmad Maruf Hossain</div>
@@ -105,10 +105,10 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
               </div>
             </div>
             <div className="meta-cell">
-              <CodeIcon size={15} />
+              <CapIcon size={15} />
               <div>
-                <div className="label">Building</div>
-                <div className="value">ClearPath</div>
+                <div className="label">University</div>
+                <div className="value">United International University</div>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
         </div>
         <div className="stat-tile">
           <CodeIcon />
-          <div className="stat-num">7</div>
+          <div className="stat-num">19</div>
           <div className="stat-label">Languages &amp; Tools</div>
         </div>
       </div>
