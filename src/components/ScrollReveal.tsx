@@ -11,6 +11,7 @@ interface ScrollRevealProps {
   id?: string;
   style?: React.CSSProperties;
   parallax?: number;
+  as?: 'section' | 'div';
 }
 
 export default function ScrollReveal({
@@ -21,6 +22,7 @@ export default function ScrollReveal({
   id,
   style,
   parallax = 0,
+  as = 'section',
 }: ScrollRevealProps) {
   const ref = useRef<HTMLElement>(null);
 
@@ -50,9 +52,11 @@ export default function ScrollReveal({
     },
   };
 
+  const MotionTag = as === 'div' ? motion.div : motion.section;
+
   return (
-    <motion.section
-      ref={ref}
+    <MotionTag
+      ref={ref as never}
       id={id}
       className={className}
       style={parallax ? { ...style, y } : style}
@@ -62,6 +66,6 @@ export default function ScrollReveal({
       variants={variants}
     >
       {children}
-    </motion.section>
+    </MotionTag>
   );
 }

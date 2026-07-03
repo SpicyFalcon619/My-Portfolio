@@ -14,7 +14,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className="theme-fab" aria-label="Toggle dark/light theme">
+      <button className="theme-toggle-btn" aria-label="Toggle dark/light theme">
         <div style={{ width: 18, height: 18 }} />
       </button>
     );
@@ -24,13 +24,12 @@ export default function ThemeToggle() {
 
   return (
     <button
-      className="theme-fab"
+      className="theme-toggle-btn"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       title="Toggle theme"
       aria-label="Toggle dark/light theme"
     >
       <motion.svg
-        className="theme-icon"
         width="20"
         height="20"
         viewBox="0 0 24 24"

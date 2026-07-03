@@ -3,8 +3,8 @@ import './globals.css';
 import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import ClientEffects from '@/components/ClientEffects';
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ClientEffects />
-          <div className="wrap">{children}</div>
+          {children}
           <SpeedInsights />
           <Analytics />
         </ThemeProvider>
