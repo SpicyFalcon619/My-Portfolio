@@ -17,6 +17,7 @@
   --accent-rgb: 77, 141, 255;
   --accent-2: #38bdf8;
   --accent-2-rgb: 56, 189, 248;
+  --cursor-shadow: #16295c;
 
   --font-body: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
@@ -94,21 +95,15 @@ html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; }
 
 .custom-cursor {
   position: fixed;
-  top: 0; left: 0;
-  width: 8px; height: 8px;
-  margin: -4px 0 0 -4px;
-  background: var(--accent);
-  border-radius: 1px;
+  top: -2px; left: -2px;
+  width: 22px; height: 22px;
   pointer-events: none;
   z-index: 9999;
   will-change: transform;
-  transition: width 0.12s ease, height 0.12s ease, margin 0.12s ease, background 0.12s ease;
+  filter: drop-shadow(2px 2px 0 var(--cursor-shadow));
 }
-.custom-cursor.is-down {
-  width: 14px; height: 14px;
-  margin: -7px 0 0 -7px;
-  background: var(--accent-2);
-}
+.custom-cursor svg { width: 100%; height: 100%; }
+.custom-cursor path { fill: var(--accent); }
 
 /* ============================================================
    Shared type + chrome
