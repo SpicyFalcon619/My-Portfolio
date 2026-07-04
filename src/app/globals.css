@@ -89,6 +89,27 @@ body::before {
 :root.light .particle-background { opacity: 0.4; }
 .particle { position: absolute; background-color: var(--particle-color); border-radius: 50%; }
 
+/* ---------- Custom cursor (replaces all native cursors, incl. text/select) ---------- */
+html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; }
+
+.custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px; height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--accent);
+  border-radius: 1px;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  transition: width 0.12s ease, height 0.12s ease, margin 0.12s ease, background 0.12s ease;
+}
+.custom-cursor.is-down {
+  width: 14px; height: 14px;
+  margin: -7px 0 0 -7px;
+  background: var(--accent-2);
+}
+
 /* ============================================================
    Shared type + chrome
    ============================================================ */
