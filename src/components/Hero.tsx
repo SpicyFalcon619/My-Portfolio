@@ -13,7 +13,7 @@ import type { GitHubStats } from '@/lib/github';
 
 export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
   return (
-    <ScrollReveal id="hero" className="hero-v3 container">
+    <ScrollReveal id="hero" className="hero-v3 container" direction="none">
       <div className="hero-grid">
         <div className="hero-copy">
           <span className="section-mark">Undergrad &middot; CSE &middot; UIU</span>

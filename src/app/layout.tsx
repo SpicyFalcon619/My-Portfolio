@@ -9,14 +9,14 @@ import { Analytics } from '@vercel/analytics/next';
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-display',
-  display: 'swap',
+  display: 'optional',
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--font-jetbrains',
-  display: 'swap',
+  display: 'optional',
 });
 
 export const metadata: Metadata = {

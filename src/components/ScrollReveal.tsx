@@ -6,7 +6,7 @@ import { ReactNode, useRef } from 'react';
 interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
-  direction?: 'up' | 'left' | 'right';
+  direction?: 'up' | 'left' | 'right' | 'none';
   delay?: number;
   id?: string;
   style?: React.CSSProperties;

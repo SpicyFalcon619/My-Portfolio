@@ -11,11 +11,17 @@ export default function MagneticButton({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
+  const handleEnter = () => {
+    rectRef.current = ref.current!.getBoundingClientRect();
+  };
+
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!rectRef.current) rectRef.current = ref.current!.getBoundingClientRect();
     const { clientX, clientY } = e;
-    const { height, width, left, top } = ref.current!.getBoundingClientRect();
+    const { height, width, left, top } = rectRef.current;
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
     setPosition({ x: middleX * 0.1, y: middleY * 0.1 });
@@ -31,6 +37,7 @@ export default function MagneticButton({
     <motion.div
       style={{ position: 'relative' }}
       ref={ref}
+      onMouseEnter={handleEnter}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
       animate={{ x, y }}
