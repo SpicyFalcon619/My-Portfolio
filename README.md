@@ -22,7 +22,9 @@ Personal portfolio for **SpicyFalcon619** — a CSE undergrad at United Internat
 * **Real GitHub data, not placeholders** — [`src/lib/github.ts`](src/lib/github.ts) fetches live public-repo stats from the GitHub REST API and scrapes the actual contribution calendar HTML from `github.com/users/{user}/contributions`, then renders it as a self-owned CSS grid (no third-party chart embeds).
 * **8 real, linked projects** — every entry in Selected Work links to an actual repo or live deployment, not a tutorial clone.
 * **Pure neo-brutalism** — solid panel backgrounds, 2px borders, hard (no-blur) offset shadows, minimal border-radius, and project rows styled as literal pressable buttons.
-* **No custom cursor, no glassmorphism, no generic bento grids** — deliberately avoided after early iterations read as generic/AI-templated.
+* **Minimal custom cursor** — a small brutalist arrow with a hard offset shadow replaces the native pointer everywhere, including over text; automatically disabled on touch devices.
+* **No glassmorphism, no generic bento grids, no background particle effects** — deliberately avoided after early iterations read as generic/AI-templated.
+* **Mobile-first nav** — the sticky top bar collapses into a slide-down menu below 760px instead of just disappearing.
 
 ## Project Structure
 
@@ -47,7 +49,8 @@ my-portfolio/
 │   │   ├── ThemeToggle.tsx
 │   │   ├── ScrollReveal.tsx
 │   │   ├── MagneticButton.tsx
-│   │   └── ParticleBackground.tsx
+│   │   ├── CustomCursor.tsx
+│   │   └── ClientEffects.tsx   # mounts client-only effects in layout.tsx
 │   └── lib/
 │       └── github.ts      # GitHub REST fetch + contribution scraper
 ├── next.config.ts

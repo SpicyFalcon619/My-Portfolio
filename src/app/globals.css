@@ -22,7 +22,6 @@
   --font-body: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
 
-  --particle-color: rgba(77, 141, 255, 0.25);
   --container: 1240px;
   --radius: 4px;
   --panel-bg: var(--bg-elevated);
@@ -47,7 +46,6 @@
   --accent-2: #1e3a8a;
   --accent-2-rgb: 30, 58, 138;
 
-  --particle-color: rgba(47, 95, 214, 0.13);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -85,10 +83,6 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
 }
 :root.light body::before { opacity: 0.16; mix-blend-mode: multiply; }
-
-.particle-background { position: fixed; inset: 0; pointer-events: none; z-index: -2; }
-:root.light .particle-background { opacity: 0.4; }
-.particle { position: absolute; background-color: var(--particle-color); border-radius: 50%; }
 
 /* ---------- Custom cursor (replaces all native cursors, incl. text/select) ---------- */
 html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; }
