@@ -7,7 +7,7 @@ import ScrollReveal from './ScrollReveal';
 import MagneticButton from './MagneticButton';
 import {
   GitHubIcon, LinkedInIcon, InstagramIcon, MailIcon,
-  PinIcon, CompassIcon, LayersIcon, CodeIcon, CapIcon,
+  PinIcon, CompassIcon, LayersIcon, CodeIcon, CapIcon, GlobeIcon, SparkIcon,
 } from './Icons';
 import type { GitHubStats } from '@/lib/github';
 
@@ -109,6 +109,20 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
               <div>
                 <div className="label">University</div>
                 <div className="value">United International University</div>
+              </div>
+            </div>
+            <div className="meta-cell">
+              <GlobeIcon size={15} />
+              <div>
+                <div className="label">Languages</div>
+                <div className="value">Spanish B1 &middot; English B2</div>
+              </div>
+            </div>
+            <div className="meta-cell">
+              <SparkIcon size={15} />
+              <div>
+                <div className="label">Currently</div>
+                <div className="value">Classical ML</div>
               </div>
             </div>
           </div>
