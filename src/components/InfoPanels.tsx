@@ -14,7 +14,7 @@ const TECH = [
 const HIGHLIGHTS = [
   { icon: TrophyIcon, text: 'Selected as Undergraduate Assistant (UGA) in the CSE department at UIU — assisting in the Database Management System Lab since July 2026' },
   { icon: CapIcon, text: 'Learning ML/AI from scratch via ml-research-journey — Python → NumPy/Pandas → Classical ML' },
-  { icon: PinIcon, text: 'Built UIUNest from scratch — a housing & flatmate-matching platform for UIU students; the project I\'m proudest of, and a fully original idea' },
+  { icon: PinIcon, text: 'Built Nestly from scratch — a housing & flatmate-matching platform for UIU students; the project I\'m proudest of, and a fully original idea' },
   { icon: TrophyIcon, text: 'Won "Best Emerging Team" at UIU CSE FEST 2025 with Wastopia, a blockchain waste-tracking platform' },
   { icon: SparkIcon, text: 'Also teach — wrote OOP (Java) notes classmates actually use, hosted on Notion' },
   { icon: JoystickIcon, text: 'Off the keyboard: casual gaming (Valorant Gold 3 among others), Rubik’s cubes, tuning Arch Linux + Hyprland' },

@@ -17,12 +17,12 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: 'UIUNest',
+    title: 'Nestly',
     description: 'My proudest build — a fully original housing & flatmate-matching platform for UIU students, not a tutorial clone. Transparent all-in billing (rent, utilities, fees, no hidden costs), an 8-dimension compatibility algorithm for flatmate matching, a secondary marketplace for dorm essentials, automated mess-bill splitting, and NID-verified landlords.',
     tags: ['Next.js', 'TypeScript', 'Marketplace', 'Full-Stack'],
-    link: 'https://uiu-nest-core.vercel.app',
+    link: 'https://nestly-core.vercel.app',
     linkText: 'View Live Project',
-    repoLink: 'https://github.com/SpicyFalcon619/uiu-nest-core',
+    repoLink: 'https://github.com/SpicyFalcon619/nestly-core',
     icon: PinIcon,
   },
   {
