@@ -7,16 +7,17 @@ import type { GitHubStats, ContributionData } from '@/lib/github';
 
 const TECH = [
   'C', 'C++', 'Java', 'HTML/CSS/JS', 'Python', 'NumPy', 'Pandas',
-  'TypeScript', 'React', 'Next.js', 'PHP', 'MySQL', 'Solidity',
+  'TypeScript', 'React', 'Next.js', 'PHP', 'MySQL',
   'Linux (Arch)', 'Hyprland', 'Git', 'Notion API', 'Blockchain', 'IoT Concepts',
 ];
 
 const HIGHLIGHTS = [
+  { icon: TrophyIcon, text: 'Selected as Undergraduate Assistant (UGA) in the CSE department at UIU — assisting in the Database Management System Lab since July 2026' },
   { icon: CapIcon, text: 'Learning ML/AI from scratch via ml-research-journey — Python → NumPy/Pandas → Classical ML' },
   { icon: PinIcon, text: 'Built UIUNest from scratch — a housing & flatmate-matching platform for UIU students; the project I\'m proudest of, and a fully original idea' },
   { icon: TrophyIcon, text: 'Won "Best Emerging Team" at UIU CSE FEST 2025 with Wastopia, a blockchain waste-tracking platform' },
   { icon: SparkIcon, text: 'Also teach — wrote OOP (Java) notes classmates actually use, hosted on Notion' },
-  { icon: JoystickIcon, text: 'Off the keyboard: esports (SpicyFalcon619, Valorant Gold 1), Rubik’s cubes, tuning Arch Linux + Hyprland' },
+  { icon: JoystickIcon, text: 'Off the keyboard: casual gaming (Valorant Gold 3 among others), Rubik’s cubes, tuning Arch Linux + Hyprland' },
 ];
 
 export default function InfoPanels({ githubStats, contributions }: { githubStats: GitHubStats; contributions: ContributionData }) {
@@ -26,7 +27,7 @@ export default function InfoPanels({ githubStats, contributions }: { githubStats
         <div className="info-panel-v3">
           <h3 className="panel-title">About</h3>
           <p className="about-p">
-            I&apos;m <strong>SpicyFalcon619</strong> — a CSE undergrad at United International University (2nd year), split between two tracks: systems programming, and, more recently, machine learning &amp; AI.
+            I&apos;m <strong>SpicyFalcon619</strong> — a CSE undergrad at United International University (3rd year) and an Undergraduate Assistant for the Database Management System Lab, split between two tracks: systems programming, and, more recently, machine learning &amp; AI.
           </p>
           <ul className="highlight-list">
             {HIGHLIGHTS.map((h) => (

@@ -142,7 +142,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
         </div>
         <div className="stat-tile">
           <CodeIcon />
-          <div className="stat-num">19</div>
+          <div className="stat-num">18</div>
           <div className="stat-label">Languages &amp; Tools</div>
         </div>
       </div>

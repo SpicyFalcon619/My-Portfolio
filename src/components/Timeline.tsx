@@ -4,6 +4,13 @@ import ScrollReveal from './ScrollReveal';
 
 const ENTRIES = [
   {
+    date: 'Jul 2026 — Present',
+    title: 'Undergraduate Assistant (UGA)',
+    org: 'Department of CSE, United International University',
+    body: 'Selected as a UGA for the Database Management System Lab, supporting lab sessions and students.',
+    tags: ['DBMS', 'SQL', 'Teaching'],
+  },
+  {
     date: 'Jan 2025',
     title: 'UIU CSE FEST 2025 — Best Emerging Team',
     org: 'Blockchain Category',
@@ -14,7 +21,7 @@ const ENTRIES = [
     date: '2024 — Present',
     title: 'BSc in Computer Science & Engineering',
     org: 'United International University',
-    body: 'Currently in my 2nd year, focusing on core CS fundamentals and emerging tech like blockchain and AI.',
+    body: 'Currently in my 3rd year (7th trimester), focusing on core CS fundamentals and emerging tech like blockchain and AI.',
     tags: ['Data Structures', 'Algorithms', 'OOP', 'Database Systems'],
   },
   {
