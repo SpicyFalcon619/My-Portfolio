@@ -20,8 +20,17 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://spicyfalcon-portfolio.vercel.app'),
   title: 'Ahmad Maruf Hossain - Portfolio',
-  description: 'CSE undergrad going deep on machine learning and AI, with Linux and systems programming along the way.',
+  description: 'CSE undergrad at UIU and DBMS Lab assistant. Builder of Nestly, the Field Guides and Drawer 378; going deep on machine learning and AI.',
+  openGraph: {
+    title: 'Ahmad Maruf Hossain (SpicyFalcon619)',
+    description: 'CSE undergrad at UIU. Nestly, interactive Field Guides, Drawer 378, and a path into ML and AI.',
+    url: 'https://spicyfalcon-portfolio.vercel.app',
+    images: [{ url: '/assets/preview.png' }],
+    type: 'website',
+  },
+  twitter: { card: 'summary_large_image', images: ['/assets/preview.png'] },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',

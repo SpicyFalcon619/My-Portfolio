@@ -4,10 +4,31 @@ import ScrollReveal from './ScrollReveal';
 
 const ENTRIES = [
   {
+    date: 'Nov 2026',
+    title: 'Drawer 378 and the Field Guides',
+    org: 'Open learning resources',
+    body: 'Published my whole degree as a searchable archive, and three interactive guides (Java, ML, AI Engineering) where every example runs in the browser.',
+    tags: ['Teaching', 'Open Source'],
+  },
+  {
+    date: 'Oct 2026',
+    title: 'PhytoCast — Electronics Lab project',
+    org: 'Team of six, EEE 2124',
+    body: 'An ESP32 plant-care system that forecasts disease before symptoms appear, with a Flask dashboard and a MobileNetV2 detector at 94.7% validation accuracy.',
+    tags: ['ESP32', 'IoT', 'Machine Learning'],
+  },
+  {
+    date: 'Oct 2026',
+    title: 'Grameenphone FutureMakers 2026',
+    org: 'Team_Anomaly',
+    body: 'Built Shetu, a prototype that helps employers keep the people they trained through long leave, with an offline AI pipeline.',
+    tags: ['Hackathon', 'Prototype'],
+  },
+  {
     date: 'Jul 2026 — Present',
     title: 'Undergraduate Assistant (UGA)',
     org: 'Department of CSE, United International University',
-    body: 'Selected as a UGA for the Database Management System Lab, supporting lab sessions and students.',
+    body: 'Selected as a UGA for the Database Management System Lab: supporting students through SQL and database lab sessions.',
     tags: ['DBMS', 'SQL', 'Teaching'],
   },
   {
@@ -21,8 +42,8 @@ const ENTRIES = [
     date: '2024 — Present',
     title: 'BSc in Computer Science & Engineering',
     org: 'United International University',
-    body: 'Currently in my 3rd year (7th trimester), focusing on core CS fundamentals and emerging tech like blockchain and AI.',
-    tags: ['Data Structures', 'Algorithms', 'OOP', 'Database Systems'],
+    body: '3rd year, 8th trimester. Every course is archived in Drawer 378.',
+    tags: ['Data Structures', 'Algorithms', 'OOP', 'Database Systems', 'AI', 'Computer Architecture', 'Software Engineering'],
   },
   {
     date: '2023',

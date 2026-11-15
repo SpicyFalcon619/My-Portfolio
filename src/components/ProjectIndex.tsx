@@ -3,7 +3,7 @@
 import { useState, type ComponentType } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
-import { SparkIcon, LayersIcon, PinIcon, CompassIcon, CodeIcon, JoystickIcon, CapIcon } from './Icons';
+import { SparkIcon, LayersIcon, PinIcon, CompassIcon, CodeIcon, JoystickIcon, CapIcon, TrophyIcon, GlobeIcon } from './Icons';
 
 type Project = {
   title: string;
@@ -12,38 +12,74 @@ type Project = {
   link: string;
   linkText: string;
   repoLink?: string;
+  repoText?: string;
   icon: ComponentType<{ size?: number; className?: string }>;
 };
 
 const PROJECTS: Project[] = [
   {
     title: 'Nestly',
-    description: 'My proudest build — a fully original housing & flatmate-matching platform for UIU students, not a tutorial clone. Transparent all-in billing (rent, utilities, fees, no hidden costs), an 8-dimension compatibility algorithm for flatmate matching, a secondary marketplace for dorm essentials, automated mess-bill splitting, and NID-verified landlords.',
-    tags: ['Next.js', 'TypeScript', 'Marketplace', 'Full-Stack'],
+    description: 'My proudest build, designed and built on my own: a platform for finding, verifying and living in shared student housing near Dhaka campuses. Every listing carries an itemised cost breakdown (rent, utilities, fees, no hidden costs), flatmates get an 8-dimension compatibility score before moving in, landlords are verified by admins, mess bills split themselves, and Nestly Exchange trades second-hand furniture with offers and counter-offers. Real-time messaging and an admin analytics dashboard sit on top.',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Realtime'],
     link: 'https://nestly-core.vercel.app',
     linkText: 'View Live Project',
     repoLink: 'https://github.com/SpicyFalcon619/nestly-core',
     icon: PinIcon,
   },
   {
-    title: 'ml-research-journey',
-    description: 'Documenting my machine learning & AI journey from the ground up — Python foundations through NumPy, Pandas, and now Classical ML, working toward neural networks.',
-    tags: ['Python', 'NumPy', 'Pandas', 'Machine Learning'],
-    link: 'https://github.com/SpicyFalcon619/ml-research-journey',
-    linkText: 'View on GitHub',
+    title: 'Field Guides',
+    description: 'Three interactive learning sites on one shared app. The Java Field Guide follows UIU’s OOP courses (CSE 1115/1116) and grew out of the notes I wrote for classmates; the ML Field Guide goes from Python to PyTorch; the AI Engineering guide goes from JavaScript to a React + FastAPI app. Every code block runs in the browser, the output shown is real captured output, and each guide has a rail map of progress, a glossary and Ctrl+K search.',
+    tags: ['React', 'TypeScript', 'Vite', 'Java', 'Python', 'Teaching'],
+    link: 'https://spicyfalcon619.github.io/java-field-guide/',
+    linkText: 'Java Field Guide',
+    repoLink: 'https://spicyfalcon619.github.io/ml-research-journey/',
+    repoText: 'ML Field Guide',
+    icon: CapIcon,
+  },
+  {
+    title: 'Drawer 378',
+    description: 'My whole CSE degree as a searchable catalogue: 3,000+ files across 37 courses. Typo-tolerant search that understands course abbreviations, a built-in viewer for PDFs, slides, documents and notebooks, and whole folders zipped in the browser with cancel and stall handling. GitHub Pages caps a site at 1 GB, so a Python pipeline packs 4.3 GB across five sites and publishes everything with one command.',
+    tags: ['JavaScript', 'Python', 'PDF.js', 'GitHub Pages', 'Automation'],
+    link: 'https://spicyfalcon619.github.io/University/',
+    linkText: 'Open the Archive',
+    icon: LayersIcon,
+  },
+  {
+    title: 'PhytoCast',
+    description: 'A prevention-first smart plant-care system, built by a team of six for the Electronics Lab. One ESP32 forecasts leaf-spot risk from temperature and humidity, irrigates in calibrated pulses, runs a fan and shade, watches the reservoir and rain, and deters pests, streaming to a Flask dashboard over WiFi. A MobileNetV2 disease detector was retrained on 87,867 images across 38 classes, reaching 94.7% validation accuracy.',
+    tags: ['ESP32', 'C++', 'Flask', 'MobileNetV2', 'IoT'],
+    link: 'https://spicyfalcon619.github.io/University/#/search/phytocast',
+    linkText: 'Report and Code',
     icon: SparkIcon,
   },
   {
-    title: 'Wastopia',
-    description: 'Design & research for a blockchain-based waste-tracking & incentive platform. Won "Best Emerging Team" (Blockchain) at UIU CSE FEST 2025.',
-    tags: ['Blockchain', 'Research', 'IoT (planned)'],
-    link: 'https://project-wastopia.vercel.app/',
+    title: 'Mandela Catalogue Field Guide',
+    description: 'An interactive fan guide to an analog-horror series: tape explorer, case files, threaded discussion with votes and moderation, accounts, and a full admin CMS. One async database interface runs on local SQLite or hosted Turso, covered by unit and Playwright end-to-end tests.',
+    tags: ['Next.js', 'TypeScript', 'SQLite', 'Turso', 'Playwright'],
+    link: 'https://mandela-catalogue.vercel.app',
     linkText: 'View Live Project',
+    repoLink: 'https://github.com/SpicyFalcon619/mandela-catalogue',
     icon: CompassIcon,
   },
   {
+    title: 'Wastopia',
+    description: 'Design and research for a blockchain-based waste-tracking and incentive platform. Won "Best Emerging Team" (Blockchain) at UIU CSE FEST 2025.',
+    tags: ['Blockchain', 'Research', 'Next.js'],
+    link: 'https://project-wastopia.vercel.app/',
+    linkText: 'View Live Project',
+    icon: TrophyIcon,
+  },
+  {
+    title: 'Shetu',
+    description: 'Team_Anomaly’s prototype for Grameenphone FutureMakers 2026: helps employers keep the people they trained through long leave, with an employee phone app, an HR view of cases and team capacity, and an AI pipeline that runs offline.',
+    tags: ['Prototype', 'HTML/CSS/JS', 'AI Pipeline', 'Team'],
+    link: 'https://github.com/SpicyFalcon619/shetu-prototype',
+    linkText: 'View on GitHub',
+    icon: GlobeIcon,
+  },
+  {
     title: 'YT-DeepNote',
-    description: 'A companion for deep learning on YouTube — timestamped Markdown notes, precision bookmarks, video screenshots, and 1-click sync to a Notion workspace.',
+    description: 'A companion for learning on YouTube: timestamped Markdown notes, precision bookmarks, video screenshots, and one-click sync of the whole session to a Notion workspace.',
     tags: ['JavaScript', 'Chrome Extension', 'Notion API'],
     link: 'https://github.com/SpicyFalcon619/YT-DeepNote',
     linkText: 'View on GitHub',
@@ -59,27 +95,27 @@ const PROJECTS: Project[] = [
   },
   {
     title: 'spicyfalcon-os',
-    description: 'A browser-based OS simulation acting as an interactive portfolio and desktop environment.',
-    tags: ['JavaScript', 'HTML', 'CSS', 'OS Simulation'],
+    description: 'A browser desktop with windows, a taskbar, a start menu and working apps (Paint, Minesweeper, a calculator, a command prompt and a music player), acting as an interactive portfolio.',
+    tags: ['React', 'Zustand', 'Framer Motion', 'Vite'],
     link: 'https://spicyfalcon-os.vercel.app',
     linkText: 'View Live Project',
     icon: JoystickIcon,
   },
   {
-    title: 'Morse Code Translator',
-    description: 'Classic Morse code translator for learning and teaching Java, with console and GUI implementations.',
-    tags: ['Java', 'Crypto'],
-    link: 'https://spicy-morse-code-java.vercel.app/',
-    linkText: 'View Live Project',
-    icon: CodeIcon,
+    title: 'research-os',
+    description: 'A beginner-friendly workspace for learning to find, read and evaluate academic papers: note templates, a literature matrix, a read-only Zotero sync with offline tests in CI, and an AI mentor setup that coaches instead of ghostwriting.',
+    tags: ['Python', 'Zotero', 'GitHub Actions'],
+    link: 'https://github.com/SpicyFalcon619/research-os',
+    linkText: 'View on GitHub',
+    icon: SparkIcon,
   },
   {
-    title: 'OOP Notes (Notion)',
-    description: 'Teaching notes prepared for classmates — utilities, references, and OOP (Java) concepts explained simply, available on Notion.',
-    tags: ['Teaching', 'Notion'],
-    link: 'https://bold-ocelot-ae1.notion.site/Theory-1d9b38bc56448124b6fce299b5459c4e',
-    linkText: 'View Notes',
-    icon: CapIcon,
+    title: 'claude-skills-setup',
+    description: 'One idempotent script (PowerShell and Bash) that installs a global AI coding toolkit on any machine: design skills checked in a real browser, Playwright, and 84 brand design systems, with security-sensitive tools deliberately left out.',
+    tags: ['PowerShell', 'Bash', 'Automation'],
+    link: 'https://github.com/SpicyFalcon619/claude-skills-setup',
+    linkText: 'View on GitHub',
+    icon: CodeIcon,
   },
 ];
 
@@ -136,7 +172,7 @@ export default function ProjectIndex() {
                 <a className="text-link" href={p.link} target="_blank" rel="noreferrer">{p.linkText} &rarr;</a>
                 {p.repoLink && (
                   <a className="text-link" href={p.repoLink} target="_blank" rel="noreferrer" style={{ marginLeft: 16 }}>
-                    View on GitHub &rarr;
+                    {p.repoText ?? 'View on GitHub'} &rarr;
                   </a>
                 )}
               </motion.div>

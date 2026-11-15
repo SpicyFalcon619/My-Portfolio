@@ -6,7 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 import ScrollReveal from './ScrollReveal';
 import MagneticButton from './MagneticButton';
 import {
-  GitHubIcon, LinkedInIcon, InstagramIcon, MailIcon,
+  GitHubIcon, LinkedInIcon, InstagramIcon, MailIcon, ArrowUpRightIcon,
   PinIcon, CompassIcon, LayersIcon, CodeIcon, CapIcon, GlobeIcon, SparkIcon,
 } from './Icons';
 import type { GitHubStats } from '@/lib/github';
@@ -37,9 +37,10 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
 
           <div className="hero-tags">
             <span className="pill">Machine Learning</span>
+            <span className="pill">Full-Stack &middot; Next.js</span>
+            <span className="pill">Teaching</span>
             <span className="pill">C &middot; C++ &middot; Java</span>
             <span className="pill">Linux Enthusiast</span>
-            <span className="pill">Systems Programming</span>
           </div>
 
           <div className="hero-cta-row">
@@ -56,6 +57,11 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
             <MagneticButton>
               <a className="btn-outline" href="mailto:a.marufhossain619@gmail.com">
                 <MailIcon /> Email
+              </a>
+            </MagneticButton>
+            <MagneticButton>
+              <a className="btn-outline" href="/resume.pdf" target="_blank" rel="noreferrer">
+                <ArrowUpRightIcon /> Resume
               </a>
             </MagneticButton>
             <MagneticButton>
@@ -94,7 +100,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
               <CompassIcon size={15} />
               <div>
                 <div className="label">Focus</div>
-                <div className="value">ML/AI &amp; Systems</div>
+                <div className="value">ML/AI &amp; Full-Stack</div>
               </div>
             </div>
             <div className="meta-cell">
@@ -122,7 +128,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
               <SparkIcon size={15} />
               <div>
                 <div className="label">Currently</div>
-                <div className="value">Classical ML</div>
+                <div className="value">Deep learning</div>
               </div>
             </div>
           </div>
@@ -132,7 +138,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
       <div className="stats-row">
         <div className="stat-tile">
           <LayersIcon />
-          <div className="stat-num">8</div>
+          <div className="stat-num">12</div>
           <div className="stat-label">Projects Shipped</div>
         </div>
         <div className="stat-tile">
@@ -142,7 +148,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
         </div>
         <div className="stat-tile">
           <CodeIcon />
-          <div className="stat-num">18</div>
+          <div className="stat-num">27</div>
           <div className="stat-label">Languages &amp; Tools</div>
         </div>
       </div>
