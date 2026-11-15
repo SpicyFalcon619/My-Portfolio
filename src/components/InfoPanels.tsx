@@ -14,7 +14,7 @@ const TECH = [
 
 const HIGHLIGHTS = [
   { icon: TrophyIcon, text: 'Selected as Undergraduate Assistant (UGA) in the CSE department at UIU — assisting in the Database Management System Lab since July 2026' },
-  { icon: PinIcon, text: 'Built Nestly on my own — a housing & flatmate-matching platform for UIU students on Next.js and Supabase; the project I\'m proudest of, and a fully original idea' },
+  { icon: PinIcon, text: 'Built Nestly with a team of four — a housing & flatmate-matching platform for UIU students on Next.js and Supabase; the project I\'m proudest of, and a fully original idea' },
   { icon: CapIcon, text: 'Teach through three interactive Field Guides (Java, ML, AI Engineering) where every example runs in the browser; the Java one follows UIU\'s OOP courses' },
   { icon: SparkIcon, text: 'Published Drawer 378 — my whole degree (3,000+ files, 37 courses) as a searchable archive that juniors use for past papers and slides' },
   { icon: TrophyIcon, text: 'Won "Best Emerging Team" at UIU CSE FEST 2025 with Wastopia, a blockchain waste-tracking platform' },

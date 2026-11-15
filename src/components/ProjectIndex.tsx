@@ -19,7 +19,7 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     title: 'Nestly',
-    description: 'My proudest build, designed and built on my own: a platform for finding, verifying and living in shared student housing near Dhaka campuses. Every listing carries an itemised cost breakdown (rent, utilities, fees, no hidden costs), flatmates get an 8-dimension compatibility score before moving in, landlords are verified by admins, mess bills split themselves, and Nestly Exchange trades second-hand furniture with offers and counter-offers. Real-time messaging and an admin analytics dashboard sit on top.',
+    description: 'My proudest build, made with a team of four: a platform for finding, verifying and living in shared student housing near Dhaka campuses. Every listing carries an itemised cost breakdown (rent, utilities, fees, no hidden costs), flatmates get an 8-dimension compatibility score before moving in, landlords are verified by admins, mess bills split themselves, and Nestly Exchange trades second-hand furniture with offers and counter-offers. Real-time messaging and an admin analytics dashboard sit on top.',
     tags: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Realtime'],
     link: 'https://nestly-core.vercel.app',
     linkText: 'View Live Project',
@@ -71,10 +71,10 @@ const PROJECTS: Project[] = [
   },
   {
     title: 'Shetu',
-    description: 'Team_Anomaly’s prototype for Grameenphone FutureMakers 2026: helps employers keep the people they trained through long leave, with an employee phone app, an HR view of cases and team capacity, and an AI pipeline that runs offline.',
-    tags: ['Prototype', 'HTML/CSS/JS', 'AI Pipeline', 'Team'],
+    description: 'An AI system that keeps a job intact through a long leave, starting with maternity leave. MAP: an AI interview in Bangla, English or Banglish turns her real duties into an evidence-backed Role Map and finds the ones she forgot. HOLD: colleagues cover them, and a change typed in plain words is re-planned. FIT: her return is planned around the arrangement she needs. AI proposes, rules check, people decide. Reached Round 2 (Concept Pitch) of Grameenphone FutureMakers 2026 in Gender Equality & Inclusion; now being rebuilt properly as our Software Engineering Lab project.',
+    tags: ['AI', 'FastAPI', 'React', 'SQLite', 'Team of four'],
     link: 'https://github.com/SpicyFalcon619/shetu-prototype',
-    linkText: 'View on GitHub',
+    linkText: 'See the Prototype',
     icon: GlobeIcon,
   },
   {

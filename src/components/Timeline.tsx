@@ -20,9 +20,9 @@ const ENTRIES = [
   {
     date: 'Oct 2026',
     title: 'Grameenphone FutureMakers 2026',
-    org: 'Team_Anomaly',
-    body: 'Built Shetu, a prototype that helps employers keep the people they trained through long leave, with an offline AI pipeline.',
-    tags: ['Hackathon', 'Prototype'],
+    org: 'Team_Anomaly, Gender Equality & Inclusion',
+    body: 'Reached Round 2, the Concept Pitch at GP House, with Shetu: an AI system that keeps a job intact through maternity leave. A team of four; now our Software Engineering Lab project.',
+    tags: ['AI', 'Competition', 'Team of four'],
   },
   {
     date: 'Jul 2026 — Present',
