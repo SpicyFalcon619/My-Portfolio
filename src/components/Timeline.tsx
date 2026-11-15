@@ -4,20 +4,6 @@ import ScrollReveal from './ScrollReveal';
 
 const ENTRIES = [
   {
-    date: 'Nov 2026',
-    title: 'Drawer 378 and the Field Guides',
-    org: 'Open learning resources',
-    body: 'Published my whole degree as a searchable archive, and three interactive guides (Java, ML, AI Engineering) where every example runs in the browser.',
-    tags: ['Teaching', 'Open Source'],
-  },
-  {
-    date: 'Oct 2026',
-    title: 'PhytoCast — Electronics Lab project',
-    org: 'Team of six, EEE 2124',
-    body: 'An ESP32 plant-care system that forecasts disease before symptoms appear, with a Flask dashboard and a MobileNetV2 detector at 94.7% validation accuracy.',
-    tags: ['ESP32', 'IoT', 'Machine Learning'],
-  },
-  {
     date: 'Oct 2026',
     title: 'Grameenphone FutureMakers 2026',
     org: 'Team_Anomaly, Gender Equality & Inclusion',
