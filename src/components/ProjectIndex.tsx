@@ -48,8 +48,8 @@ const PROJECTS: Project[] = [
     title: 'PhytoCast',
     description: 'A prevention-first smart plant-care system, built by a team of six for the Electronics Lab. One ESP32 forecasts leaf-spot risk from temperature and humidity, irrigates in calibrated pulses, runs a fan and shade, watches the reservoir and rain, and deters pests, streaming to a Flask dashboard over WiFi. A MobileNetV2 disease detector was retrained on 87,867 images across 38 classes, reaching 94.7% validation accuracy.',
     tags: ['ESP32', 'C++', 'Flask', 'MobileNetV2', 'IoT'],
-    link: 'https://spicyfalcon619.github.io/University/#/search/phytocast',
-    linkText: 'Report and Code',
+    link: 'https://github.com/SpicyFalcon619/PhytoCast',
+    linkText: 'View on GitHub',
     icon: SparkIcon,
   },
   {
