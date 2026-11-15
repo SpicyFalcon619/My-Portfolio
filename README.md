@@ -1,94 +1,79 @@
-# Ahmad Maruf Hossain — Portfolio
+# Ahmad Maruf Hossain: Portfolio
 
-Personal portfolio for **SpicyFalcon619** — a CSE undergrad at United International University going deep on machine learning and AI, with systems programming and Linux along the way. Built as a neo-brutalist single-page site: solid panels, hard offset shadows, sharp corners, real GitHub data — no stock templates, no placeholder content.
+The personal portfolio of **Ahmad Maruf Hossain (SpicyFalcon619)**: a CSE undergraduate at United International University, Undergraduate Assistant for the Database Management System Lab, and builder of Nestly, the Field Guides and Drawer 378.
 
-**Live:** [spicyfalcon-portfolio.vercel.app](https://spicyfalcon-portfolio.vercel.app)
+**[spicyfalcon-portfolio.vercel.app](https://spicyfalcon-portfolio.vercel.app)** · [Résumé (PDF)](https://spicyfalcon-portfolio.vercel.app/resume.pdf) · [Desktop-style version](https://spicyfalcon-os.vercel.app)
 
-![Preview](public/assets/preview.png)
+![The portfolio's hero: name, profile card, live GitHub stats and links](public/assets/preview.png)
 
----
+## What's on the site
 
-## Tech Stack
+| Section | Contents |
+|---|---|
+| **Home** | Name, focus, links (GitHub, LinkedIn, email, résumé) and a profile card with live GitHub numbers |
+| **Selected Work** | Twelve projects in an index: pick one to read what it does, its stack, and its live link or repository |
+| **Profile** | About, highlights, the full tech stack, and a GitHub contribution heatmap built from real data |
+| **Timeline** | Milestones: the UGA role, competitions, education |
+| **Contact** | Email, a contact form, social links and the CV download |
 
-* **Framework**: Next.js 15 (App Router), React 19, TypeScript
-* **Styling**: Plain CSS with custom properties for theming — no utility framework
-* **Animation**: Framer Motion, `react-type-animation`
-* **Theming**: `next-themes` (dark/light, class-based)
-* **Analytics**: Vercel Analytics + Speed Insights
-* **Deployment**: Vercel
+## Design decisions
 
-## What Makes This Different
+- **Neo-brutalist, not templated.** Solid panels, 2 px borders, hard offset shadows and sharp corners. Glassmorphism, bento grids and particle backgrounds were tried and dropped because they looked generic.
+- **Real data only.** [`src/lib/github.ts`](src/lib/github.ts) reads public repository stats from the GitHub REST API and the contribution calendar from GitHub's own page, then draws the heatmap as a plain CSS grid, refreshed hourly. Every project links to a real repository or live deployment.
+- **The CV is one click away everywhere.** A Résumé button in the top bar, in the mobile menu, in the hero and in Contact. The public PDF leaves out the phone number.
+- **Built for every screen.** The top bar folds into a slide-down menu under 760 px; the custom cursor switches itself off on touch devices.
+- **Light and dark themes**, class-based, with no flash on load.
 
-* **Real GitHub data, not placeholders** — [`src/lib/github.ts`](src/lib/github.ts) fetches live public-repo stats from the GitHub REST API and scrapes the actual contribution calendar HTML from `github.com/users/{user}/contributions`, then renders it as a self-owned CSS grid (no third-party chart embeds).
-* **8 real, linked projects** — every entry in Selected Work links to an actual repo or live deployment, not a tutorial clone.
-* **Pure neo-brutalism** — solid panel backgrounds, 2px borders, hard (no-blur) offset shadows, minimal border-radius, and project rows styled as literal pressable buttons.
-* **Minimal custom cursor** — a small brutalist arrow with a hard offset shadow replaces the native pointer everywhere, including over text; automatically disabled on touch devices.
-* **No glassmorphism, no generic bento grids, no background particle effects** — deliberately avoided after early iterations read as generic/AI-templated.
-* **Mobile-first nav** — the sticky top bar collapses into a slide-down menu below 760px instead of just disappearing.
+## Tech stack
 
-## Project Structure
+| | |
+|---|---|
+| Framework | Next.js 15 (App Router), React 19, TypeScript |
+| Styling | Plain CSS with custom properties; no utility framework |
+| Motion | Framer Motion, `react-type-animation` |
+| Fonts | Bricolage Grotesque and JetBrains Mono via `next/font` |
+| Theming | `next-themes` |
+| Data | GitHub REST API, revalidated hourly |
+| Analytics | Vercel Analytics and Speed Insights |
+| Hosting | Vercel, deployed on every push to `main` |
 
-```
-my-portfolio/
-├── public/
-│   └── assets/            # avatar, favicons, preview screenshot
-├── src/
-│   ├── app/
-│   │   ├── globals.css    # design tokens + all styling
-│   │   ├── layout.tsx     # fonts, theme provider, analytics
-│   │   └── page.tsx       # fetches GitHub data, composes sections
-│   ├── components/
-│   │   ├── TopBar.tsx          # sticky nav + mobile menu
-│   │   ├── Hero.tsx             # name, tagline, profile card, stats
-│   │   ├── ProjectIndex.tsx     # Selected Work — index + detail view
-│   │   ├── InfoPanels.tsx       # About, Tech Stack, GitHub activity
-│   │   ├── GitHubHeatmap.tsx    # renders real contribution data
-│   │   ├── Timeline.tsx         # education + achievements
-│   │   ├── ContactCTA.tsx       # contact form + socials
-│   │   ├── Icons.tsx            # custom SVG icon set
-│   │   ├── ThemeToggle.tsx
-│   │   ├── ScrollReveal.tsx
-│   │   ├── MagneticButton.tsx
-│   │   ├── CustomCursor.tsx
-│   │   └── ClientEffects.tsx   # mounts client-only effects in layout.tsx
-│   └── lib/
-│       └── github.ts      # GitHub REST fetch + contribution scraper
-├── next.config.ts
-├── package.json
-└── tsconfig.json
-```
-
-## Getting Started
-
-### Prerequisites
-
-* Node.js >= 18
-* npm
-
-### Installation
+## Run it locally
 
 ```bash
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see it live locally.
+Node.js 18 or newer. No environment variables are needed; GitHub data comes from public endpoints.
 
-### Build for Production
+## Project structure
 
-```bash
-npm run build
-npm start
+```text
+src/
+  app/
+    layout.tsx         fonts, theme provider, metadata, analytics
+    page.tsx           fetches GitHub data and composes the sections
+    globals.css        design tokens and all styling
+  components/
+    TopBar.tsx         sticky navigation, résumé link, mobile menu
+    Hero.tsx           name, tagline, profile card, stats
+    ProjectIndex.tsx   Selected Work: the project list and detail view
+    InfoPanels.tsx     about, highlights, tech stack, GitHub activity
+    GitHubHeatmap.tsx  contribution calendar from real data
+    Timeline.tsx       milestones
+    ContactCTA.tsx     contact form, socials, CV download
+  lib/
+    github.ts          GitHub REST fetch and contribution scraper
+public/
+  resume.pdf           the public CV
+  assets/              avatar, icons, preview image
 ```
 
-## Deployment
+## Updating the content
 
-Optimized for **Vercel** — connect the GitHub repo and it auto-deploys on every push to `main`.
-
-## Roadmap
-
-See [NEXT_STEPS.md](NEXT_STEPS.md) for the open ideas backlog (OG image, resume link, deeper case studies, perf pass).
+Projects live in `PROJECTS` in [`src/components/ProjectIndex.tsx`](src/components/ProjectIndex.tsx), highlights and the tech list in [`InfoPanels.tsx`](src/components/InfoPanels.tsx), and milestones in [`Timeline.tsx`](src/components/Timeline.tsx). To update the CV, replace `public/resume.pdf`.
 
 ## License
 
-Open source under the MIT License.
+The code is [MIT licensed](LICENSE). The text, photographs and CV are personal and not covered by the licence.

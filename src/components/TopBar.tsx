@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import ThemeToggle from './ThemeToggle';
-import { MenuIcon, CloseIcon } from './Icons';
+import { MenuIcon, CloseIcon, ArrowUpRightIcon } from './Icons';
 
 const SECTIONS = [
   { id: 'hero', label: 'Home' },
@@ -66,6 +66,9 @@ export default function TopBar() {
       </nav>
 
       <div className="topbar-right">
+        <a className="topbar-resume" href="/resume.pdf" target="_blank" rel="noreferrer">
+          Resume <ArrowUpRightIcon size={13} />
+        </a>
         <ThemeToggle />
         <button
           className="topbar-burger"
@@ -88,6 +91,9 @@ export default function TopBar() {
               {s.label}
             </button>
           ))}
+          <a className="topbar-mobile-link" href="/resume.pdf" target="_blank" rel="noreferrer">
+            Resume (PDF) &#8599;
+          </a>
         </nav>
       )}
     </header>
