@@ -3,8 +3,6 @@ import './globals.css';
 import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import ClientEffects from '@/components/ClientEffects';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -20,13 +18,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://spicyfalcon-portfolio.vercel.app'),
+  metadataBase: new URL('https://spicyfalcon619.github.io'),
   title: 'Ahmad Maruf Hossain - Portfolio',
   description: 'CSE undergrad at UIU and DBMS Lab assistant. Builder of Nestly, the Field Guides and Drawer 378; going deep on machine learning and AI.',
   openGraph: {
     title: 'Ahmad Maruf Hossain (SpicyFalcon619)',
     description: 'CSE undergrad at UIU. Nestly, interactive Field Guides, Drawer 378, and a path into ML and AI.',
-    url: 'https://spicyfalcon-portfolio.vercel.app',
+    url: 'https://spicyfalcon619.github.io',
     images: [{ url: '/assets/preview.png' }],
     type: 'website',
   },
@@ -45,8 +43,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ClientEffects />
           {children}
-          <SpeedInsights />
-          <Analytics />
         </ThemeProvider>
       </body>
     </html>

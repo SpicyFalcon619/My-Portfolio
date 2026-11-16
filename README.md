@@ -2,7 +2,7 @@
 
 The personal portfolio of **Ahmad Maruf Hossain (SpicyFalcon619)**: a CSE undergraduate at United International University, Undergraduate Assistant for the Database Management System Lab, and builder of Nestly, the Field Guides and Drawer 378.
 
-**[spicyfalcon-portfolio.vercel.app](https://spicyfalcon-portfolio.vercel.app)** · [Résumé (PDF)](https://spicyfalcon-portfolio.vercel.app/resume.pdf) · [Desktop-style version](https://spicyfalcon-os.vercel.app)
+**[spicyfalcon619.github.io](https://spicyfalcon619.github.io)** · [Résumé (PDF)](https://spicyfalcon619.github.io/resume.pdf) · [Desktop-style version](https://spicyfalcon-os.vercel.app)
 
 ![The portfolio's hero: name, profile card, live GitHub stats and links](public/assets/preview.png)
 
@@ -19,7 +19,7 @@ The personal portfolio of **Ahmad Maruf Hossain (SpicyFalcon619)**: a CSE underg
 ## Design decisions
 
 - **Neo-brutalist, not templated.** Solid panels, 2 px borders, hard offset shadows and sharp corners. Glassmorphism, bento grids and particle backgrounds were tried and dropped because they looked generic.
-- **Real data only.** [`src/lib/github.ts`](src/lib/github.ts) reads public repository stats from the GitHub REST API and the contribution calendar from GitHub's own page, then draws the heatmap as a plain CSS grid, refreshed hourly. Every project links to a real repository or live deployment.
+- **Real data only.** [`src/lib/github.ts`](src/lib/github.ts) reads public repository stats from the GitHub REST API and the contribution calendar from GitHub's own page, then draws the heatmap as a plain CSS grid. The site is rebuilt every day, so the numbers stay current. Every project links to a real repository or live deployment.
 - **The CV is one click away everywhere.** A Résumé button in the top bar, in the mobile menu, in the hero and in Contact. The public PDF leaves out the phone number.
 - **Built for every screen.** The top bar folds into a slide-down menu under 760 px; the custom cursor switches itself off on touch devices.
 - **Light and dark themes**, class-based, with no flash on load.
@@ -33,26 +33,25 @@ The personal portfolio of **Ahmad Maruf Hossain (SpicyFalcon619)**: a CSE underg
 | Motion | Framer Motion, `react-type-animation` |
 | Fonts | Bricolage Grotesque and JetBrains Mono via `next/font` |
 | Theming | `next-themes` |
-| Data | GitHub REST API, revalidated hourly |
-| Analytics | Vercel Analytics and Speed Insights |
-| Hosting | Vercel, deployed on every push to `main` |
+| Data | GitHub REST API, read at build time |
+| Hosting | GitHub Pages as a static export, rebuilt on every push to `main` and daily by [GitHub Actions](.github/workflows/deploy.yml) |
 
 ## Run it locally
 
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-npm run build && npm start
+npm run build      # static site in out/
 ```
 
-Node.js 18 or newer. No environment variables are needed; GitHub data comes from public endpoints.
+Node.js 18 or newer. No environment variables are needed; GitHub data comes from public endpoints. Pushing to `main` deploys automatically.
 
 ## Project structure
 
 ```text
 src/
   app/
-    layout.tsx         fonts, theme provider, metadata, analytics
+    layout.tsx         fonts, theme provider, metadata
     page.tsx           fetches GitHub data and composes the sections
     globals.css        design tokens and all styling
   components/

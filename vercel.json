@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/(.*)", "destination": "https://spicyfalcon619.github.io/$1", "permanent": true }
+  ]
+}
