@@ -6,6 +6,8 @@ The personal portfolio of **Ahmad Maruf Hossain (SpicyFalcon619)**: a CSE underg
 
 ![The portfolio's hero: name, profile card, live GitHub stats and links](public/assets/preview.png)
 
+![Selected Work: a project index on the left and the chosen project's detail on the right](public/assets/preview-work.png)
+
 ## What's on the site
 
 | Section | Contents |
