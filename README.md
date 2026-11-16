@@ -2,7 +2,7 @@
 
 The personal portfolio of **Ahmad Maruf Hossain (SpicyFalcon619)**: a CSE undergraduate at United International University, Undergraduate Assistant for the Database Management System Lab, and builder of Nestly, the Field Guides and Drawer 378.
 
-**[spicyfalcon619.github.io](https://spicyfalcon619.github.io)** · [Résumé (PDF)](https://spicyfalcon619.github.io/resume.pdf) · [Desktop-style version](https://spicyfalcon-os.vercel.app)
+**[spicyfalcon619.github.io](https://spicyfalcon619.github.io)** · [Resume (PDF)](https://spicyfalcon619.github.io/resume.pdf) · [Desktop-style version](https://spicyfalcon-os.vercel.app)
 
 ![The portfolio's hero: name, profile card, live GitHub stats and links](public/assets/preview.png)
 
@@ -20,7 +20,7 @@ The personal portfolio of **Ahmad Maruf Hossain (SpicyFalcon619)**: a CSE underg
 
 - **Neo-brutalist, not templated.** Solid panels, 2 px borders, hard offset shadows and sharp corners. Glassmorphism, bento grids and particle backgrounds were tried and dropped because they looked generic.
 - **Real data only.** [`src/lib/github.ts`](src/lib/github.ts) reads public repository stats from the GitHub REST API and the contribution calendar from GitHub's own page, then draws the heatmap as a plain CSS grid. The site is rebuilt every day, so the numbers stay current. Every project links to a real repository or live deployment.
-- **One place for the CV.** A Résumé button at the top right, on every screen size. The public PDF leaves out the phone number.
+- **One place for the resume.** A Resume button at the top right, on every screen size. The public PDF leaves out the phone number.
 - **Built for every screen.** The top bar folds into a slide-down menu under 760 px; the custom cursor switches itself off on touch devices.
 - **Light and dark themes**, class-based, with no flash on load.
 
@@ -55,7 +55,7 @@ src/
     page.tsx           fetches GitHub data and composes the sections
     globals.css        design tokens and all styling
   components/
-    TopBar.tsx         sticky navigation, résumé link, mobile menu
+    TopBar.tsx         sticky navigation, resume link, mobile menu
     Hero.tsx           name, tagline, profile card, stats
     ProjectIndex.tsx   Selected Work: the project list and detail view
     InfoPanels.tsx     about, highlights, tech stack, GitHub activity
@@ -65,14 +65,14 @@ src/
   lib/
     github.ts          GitHub REST fetch and contribution scraper
 public/
-  resume.pdf           the public CV
+  resume.pdf           the public resume
   assets/              avatar, icons, preview image
 ```
 
 ## Updating the content
 
-Projects live in `PROJECTS` in [`src/components/ProjectIndex.tsx`](src/components/ProjectIndex.tsx), highlights and the tech list in [`InfoPanels.tsx`](src/components/InfoPanels.tsx), and milestones in [`Timeline.tsx`](src/components/Timeline.tsx). To update the CV, replace `public/resume.pdf`.
+Projects live in `PROJECTS` in [`src/components/ProjectIndex.tsx`](src/components/ProjectIndex.tsx), highlights and the tech list in [`InfoPanels.tsx`](src/components/InfoPanels.tsx), and milestones in [`Timeline.tsx`](src/components/Timeline.tsx). To update the resume, replace `public/resume.pdf`.
 
 ## License
 
-The code is [MIT licensed](LICENSE). The text, photographs and CV are personal and not covered by the licence.
+The code is [MIT licensed](LICENSE). The text, photographs and resume are personal and not covered by the licence.
