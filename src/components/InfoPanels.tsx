@@ -12,6 +12,12 @@ const TECH = [
   'Playwright', 'GitHub Actions', 'Git', 'Linux (Arch)', 'Hyprland',
 ];
 
+const INTERESTS = [
+  { area: 'Human-Computer Interaction', topics: ['Human-centred AI', 'Explainable and controllable AI', 'Interactive ML', 'AR/VR', 'Learning technology'] },
+  { area: 'Artificial Intelligence', topics: ['Machine learning', 'NLP for Bangla and Banglish', 'Applied AI with people in the loop'] },
+  { area: 'Systems', topics: ['Blockchain', 'IoT and embedded systems'] },
+];
+
 const HIGHLIGHTS = [
   { icon: TrophyIcon, text: 'Selected as Undergraduate Assistant (UGA) in the CSE department at UIU — assisting in the Database Management System Lab since July 2026' },
   { icon: PinIcon, text: 'Built Nestly with Sadia Noman Tonni, Nazha Tarannum Roza and Mohammad Mahadi Hasan — a housing & flatmate-matching platform for UIU students on Next.js and Supabase; the project I\'m proudest of, and a fully original idea' },
@@ -47,6 +53,25 @@ export default function InfoPanels({ githubStats, contributions }: { githubStats
               <span className="tag" key={t}>{t}</span>
             ))}
           </div>
+        </div>
+      </div>
+
+      <div className="interests-panel" id="research">
+        <h3 className="panel-title">Research Interests</h3>
+        <p className="interests-lead">
+          I want to work on <strong>AI that people can understand and stay in control of</strong>, from how it explains itself to how it handles Bangla and code-mixed Banglish. My blockchain work (finalist at Blockchain Olympiad Bangladesh 2025, third at the UIU Computer Club competition, best emerging team at UIU CSE FEST 2025) is where I started.
+        </p>
+        <div className="interest-grid">
+          {INTERESTS.map((g) => (
+            <div className="interest-group" key={g.area}>
+              <h4>{g.area}</h4>
+              <div className="tech-grid">
+                {g.topics.map((t) => (
+                  <span className="tag" key={t}>{t}</span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

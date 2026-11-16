@@ -371,6 +371,15 @@ section:not(:first-of-type)::before {
   box-shadow: 5px 5px 0 0 var(--accent);
 }
 .info-panel-v3:nth-of-type(2) { box-shadow: 5px 5px 0 0 var(--accent-2); }
+.interests-panel {
+  margin-top: 28px; padding: 28px; border: 2px solid var(--fg); border-radius: var(--radius);
+  background: var(--bg-card, transparent); box-shadow: 5px 5px 0 0 var(--accent);
+}
+.interests-panel .panel-title { margin-bottom: 12px; }
+.interests-lead { margin: 0 0 22px; max-width: 78ch; line-height: 1.65; color: var(--fg); }
+.interest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.interest-group h4 { margin: 0 0 10px; font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--fg); }
+@media (max-width: 900px) { .interest-grid { grid-template-columns: 1fr; } }
 .panel-title { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 16px; }
 
 .about-p { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }

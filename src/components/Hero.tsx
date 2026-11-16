@@ -36,9 +36,9 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
           </p>
 
           <div className="hero-tags">
-            <span className="pill">Machine Learning</span>
-            <span className="pill">Full-Stack &middot; Next.js</span>
-            <span className="pill">Teaching</span>
+            <span className="pill">HCI &middot; Human-Centred AI</span>
+            <span className="pill">Machine Learning &middot; NLP</span>
+            <span className="pill">Blockchain</span>
             <span className="pill">C &middot; C++ &middot; Java</span>
             <span className="pill">Linux Enthusiast</span>
           </div>
@@ -95,7 +95,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
               <CompassIcon size={15} />
               <div>
                 <div className="label">Focus</div>
-                <div className="value">ML/AI &amp; Full-Stack</div>
+                <div className="value">HCI &amp; AI</div>
               </div>
             </div>
             <div className="meta-cell">
