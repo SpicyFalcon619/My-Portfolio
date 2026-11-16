@@ -28,7 +28,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
+      # Google Fonts is fetched during the build and now and then fails on the runner: try once more
+      - run: npm run build || (sleep 20 && npm run build)
         env:
           NEXT_TELEMETRY_DISABLED: "1"
       - uses: actions/upload-pages-artifact@v3
