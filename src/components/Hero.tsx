@@ -116,7 +116,7 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
               <GlobeIcon size={15} />
               <div>
                 <div className="label">Languages</div>
-                <div className="value">Spanish B1 &middot; English B2</div>
+                <div className="value">English C1 &middot; Spanish B1</div>
               </div>
             </div>
             <div className="meta-cell">
