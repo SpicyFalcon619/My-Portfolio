@@ -2,7 +2,7 @@
 
 import ScrollReveal from './ScrollReveal';
 import MagneticButton from './MagneticButton';
-import { GitHubIcon, LinkedInIcon, InstagramIcon, MailIcon, ArrowUpRightIcon } from './Icons';
+import { GitHubIcon, LinkedInIcon, InstagramIcon, MailIcon } from './Icons';
 
 export default function ContactCTA() {
   return (
@@ -20,11 +20,7 @@ export default function ContactCTA() {
               <MailIcon /> a.marufhossain619@gmail.com
             </a>
           </MagneticButton>
-          <MagneticButton>
-            <a className="btn-outline" href="/resume.pdf" target="_blank" rel="noreferrer">
-              <ArrowUpRightIcon /> Download my CV (PDF)
-            </a>
-          </MagneticButton>
+
           <div className="contact-icon-row">
             <MagneticButton>
               <a href="https://github.com/SpicyFalcon619" target="_blank" rel="noreferrer" aria-label="GitHub" className="icon-btn"><GitHubIcon /></a>

@@ -219,7 +219,7 @@ section:not(:first-of-type)::before {
 }
 .topbar-resume:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--accent); }
 .topbar-resume:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--accent); }
-@media (max-width: 760px) { .topbar-resume { display: none; } }
+@media (max-width: 760px) { .topbar-resume { padding: 6px 10px; font-size: 12px; box-shadow: 2px 2px 0 var(--accent); } }
 
 .topbar-burger {
   display: none;
@@ -249,7 +249,6 @@ section:not(:first-of-type)::before {
   color: var(--muted); padding: 12px 4px; border-bottom: 1px solid var(--glass-border);
 }
 .topbar-mobile-link:last-child { border-bottom: none; }
-a.topbar-mobile-link { color: var(--fg); text-decoration: none; }
 .topbar-mobile-link.active { color: var(--accent); }
 
 .theme-toggle-btn {

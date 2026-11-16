@@ -6,7 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 import ScrollReveal from './ScrollReveal';
 import MagneticButton from './MagneticButton';
 import {
-  GitHubIcon, LinkedInIcon, InstagramIcon, MailIcon, ArrowUpRightIcon,
+  GitHubIcon, LinkedInIcon, InstagramIcon, MailIcon,
   PinIcon, CompassIcon, LayersIcon, CodeIcon, CapIcon, GlobeIcon, SparkIcon,
 } from './Icons';
 import type { GitHubStats } from '@/lib/github';
@@ -57,11 +57,6 @@ export default function Hero({ githubStats }: { githubStats: GitHubStats }) {
             <MagneticButton>
               <a className="btn-outline" href="mailto:a.marufhossain619@gmail.com">
                 <MailIcon /> Email
-              </a>
-            </MagneticButton>
-            <MagneticButton>
-              <a className="btn-outline" href="/resume.pdf" target="_blank" rel="noreferrer">
-                <ArrowUpRightIcon /> Resume
               </a>
             </MagneticButton>
             <MagneticButton>

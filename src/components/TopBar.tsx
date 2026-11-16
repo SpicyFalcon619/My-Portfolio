@@ -91,9 +91,6 @@ export default function TopBar() {
               {s.label}
             </button>
           ))}
-          <a className="topbar-mobile-link" href="/resume.pdf" target="_blank" rel="noreferrer">
-            Resume (PDF) &#8599;
-          </a>
         </nav>
       )}
     </header>

@@ -10,17 +10,17 @@ The personal portfolio of **Ahmad Maruf Hossain (SpicyFalcon619)**: a CSE underg
 
 | Section | Contents |
 |---|---|
-| **Home** | Name, focus, links (GitHub, LinkedIn, email, résumé) and a profile card with live GitHub numbers |
+| **Home** | Name, focus, links (GitHub, LinkedIn, email) and a profile card with live GitHub numbers |
 | **Selected Work** | Twelve projects in an index: pick one to read what it does, its stack, and its live link or repository |
 | **Profile** | About, highlights, the full tech stack, and a GitHub contribution heatmap built from real data |
 | **Timeline** | Milestones: the UGA role, competitions, education |
-| **Contact** | Email, a contact form, social links and the CV download |
+| **Contact** | Email, a contact form and social links |
 
 ## Design decisions
 
 - **Neo-brutalist, not templated.** Solid panels, 2 px borders, hard offset shadows and sharp corners. Glassmorphism, bento grids and particle backgrounds were tried and dropped because they looked generic.
 - **Real data only.** [`src/lib/github.ts`](src/lib/github.ts) reads public repository stats from the GitHub REST API and the contribution calendar from GitHub's own page, then draws the heatmap as a plain CSS grid. The site is rebuilt every day, so the numbers stay current. Every project links to a real repository or live deployment.
-- **The CV is one click away everywhere.** A Résumé button in the top bar, in the mobile menu, in the hero and in Contact. The public PDF leaves out the phone number.
+- **One place for the CV.** A Résumé button at the top right, on every screen size. The public PDF leaves out the phone number.
 - **Built for every screen.** The top bar folds into a slide-down menu under 760 px; the custom cursor switches itself off on touch devices.
 - **Light and dark themes**, class-based, with no flash on load.
 
@@ -61,7 +61,7 @@ src/
     InfoPanels.tsx     about, highlights, tech stack, GitHub activity
     GitHubHeatmap.tsx  contribution calendar from real data
     Timeline.tsx       milestones
-    ContactCTA.tsx     contact form, socials, CV download
+    ContactCTA.tsx     contact form and socials
   lib/
     github.ts          GitHub REST fetch and contribution scraper
 public/
